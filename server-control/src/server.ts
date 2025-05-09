@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-09 14:30:50
+ * @LastEditTime: 2025-05-09 18:29:12
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -11,11 +11,14 @@ import axios from 'axios';
 import * as fs from 'fs';
 import * as path from 'path';
 import { createCanvas, loadImage } from 'canvas';
+import sharp from 'sharp';
 import { analyzeImage } from './glm-image';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import { captureAndProcessScreenshot, getDisplayScaling } from './screen-utils';
 
 import si from 'systeminformation';
+import { execSync } from 'child_process';
 
 // 扩展systeminformation类型定义
 declare module 'systeminformation' {
@@ -139,35 +142,6 @@ app.post('/keyboard/type', (req, res) => {
 
 /**
  * @swagger
- * /screen/analyze:
- *   post:
- *     summary: 屏幕分析
- *     description: 捕获屏幕并发送到AI模型进行分析
- *     responses:
- *       200:
- *         description: 分析成功
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 result:
- *                   type: string
- *                   description: AI分析结果
- *                   example: "屏幕上显示的是一个登录界面"
- *       500:
- *         description: 分析失败
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Screen analysis failed"
- */
-/**
- * @swagger
  * /screen/info:
  *   get:
  *     summary: 获取屏幕信息
@@ -192,6 +166,13 @@ app.post('/keyboard/type', (req, res) => {
  *                       type: number
  *                     dpi:
  *                       type: number
+ *                     scaling:
+ *                       type: object
+ *                       properties:
+ *                         scaleX:
+ *                           type: number
+ *                         scaleY:
+ *                           type: number
  *                 displays:
  *                   type: array
  *                   items:
@@ -232,7 +213,8 @@ app.get('/screen/info', async (req, res) => {
                 refreshRate: primaryDisplay.currentRefreshRate,
                 size: primaryDisplay.sizeX ? `${primaryDisplay.sizeX}英寸` : null,
                 connection: primaryDisplay.connection,
-                isBuiltIn: primaryDisplay.builtin
+                isBuiltIn: primaryDisplay.builtin,
+                scaling: getDisplayScaling()
             },
             displays: displays.map(display => ({
                 vendor: display.vendor,
@@ -255,71 +237,61 @@ app.get('/screen/info', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /screen/analyze:
+ *   post:
+ *     summary: 屏幕分析
+ *     description: 捕获屏幕并发送到AI模型进行分析
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               prompt:
+ *                 type: string
+ *                 description: 自定义提示词
+ *                 example: "请描述屏幕内容并定位搜索框位置"
+ *     responses:
+ *       200:
+ *         description: 分析成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 result:
+ *                   type: string
+ *                   description: AI分析结果
+ *                   example: "屏幕上显示的是一个登录界面"
+ *       500:
+ *         description: 分析失败
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Screen analysis failed"
+ */
 app.post('/screen/analyze', async (req, res) => {
+    const { prompt } = req.body;
     try {
-        // 1. 检查temp目录
-        const tempDir = path.join(process.cwd(), 'temp');
-        if (!fs.existsSync(tempDir)) {
-            fs.mkdirSync(tempDir, { recursive: true });
-            console.log(`已创建临时目录: ${tempDir}`);
-        }
-
-        // 2. 捕获屏幕截图
-        console.log('开始捕获屏幕截图...');
-        const screenshot = robot.screen.capture();
-        if (!screenshot || !screenshot.image) {
-            throw new Error('屏幕截图捕获失败');
-        }
-        console.log('截图捕获成功，尺寸:', screenshot.width, 'x', screenshot.height);
-
-        // 3. 保存截图文件
-        const tempPath = path.join(tempDir, 'screenshot.png');
-        console.log(`正在保存截图到: ${tempPath}`);
-
-        try {
-            const canvas = createCanvas(screenshot.width, screenshot.height);
-            const ctx = canvas.getContext('2d');
-
-            // 将robotjs的BGRA数据转换为RGBA
-            const imageData = ctx.createImageData(screenshot.width, screenshot.height);
-            const bgraData = screenshot.image;
-            for (let y = 0; y < screenshot.height; y++) {
-                for (let x = 0; x < screenshot.width; x++) {
-                    const idx = (y * screenshot.width + x) * 4;
-                    // BGRA -> RGBA 转换
-                    imageData.data[idx] = bgraData[idx + 2];     // R
-                    imageData.data[idx + 1] = bgraData[idx + 1]; // G
-                    imageData.data[idx + 2] = bgraData[idx];     // B
-                    imageData.data[idx + 3] = bgraData[idx + 3]; // A
-                }
-            }
-            ctx.putImageData(imageData, 0, 0);
-
-            // 保存为PNG
-            const out = fs.createWriteStream(tempPath);
-            const stream = canvas.createPNGStream();
-            stream.pipe(out);
-            await new Promise<void>((resolve, reject) => {
-                out.on('finish', () => resolve());
-                out.on('error', (err) => reject(err));
-            });
-            console.log(`截图已成功保存到: ${tempPath}`);
-        } catch (err: unknown) {
-            const errorMsg = err instanceof Error ? err.message : '未知错误';
-            console.error('截图保存失败:', errorMsg);
-            throw new Error(`截图保存失败: ${errorMsg}`);
-        }
-
-        // 4. 验证文件
-        if (!fs.existsSync(tempPath)) {
-            throw new Error(`截图文件不存在，路径: ${tempPath}`);
-        }
+        // 捕获并处理屏幕截图
+        const { filePath } = await captureAndProcessScreenshot();
 
         // 使用GLM-4V模型分析截图
-        const result = await analyzeImage(tempPath);
+        const result = await analyzeImage(filePath, prompt);
         res.json({ result });
     } catch (error) {
-        res.status(500).json({ error: 'Screen analysis failed' });
+        console.error('屏幕分析失败:', error);
+        res.status(500).json({
+            error: 'Screen analysis failed',
+            details: error instanceof Error ? error.message : String(error)
+        });
     }
 });
 
