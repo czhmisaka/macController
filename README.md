@@ -13,7 +13,7 @@
 - 网络状态检测
 - 进程管理
 
-### 远程控制
+### **远程控制**
 - 屏幕截图捕获
 - 键盘鼠标模拟
 - 应用程序控制
@@ -79,6 +79,14 @@
 - Node.js 18.20.8 (推荐使用nvm管理版本)
 - npm 8+
 - TypeScript 4+
+- 环境变量配置:
+  ```bash
+  # 服务器端口(默认15800)
+  SERVER_PORT=15800
+  
+  # GLM API密钥
+  GLM_API_KEY=your_api_key_here
+  ```
 
 ## 🚀 快速开始
 1. 克隆仓库
@@ -90,7 +98,8 @@
    ```bash
    npm install
    ```
-4. 编译并运行：
+4. 创建.env文件并配置环境变量
+5. 编译并运行：
    ```bash
    npm run build
    npm start

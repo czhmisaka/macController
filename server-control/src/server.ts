@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-09 18:29:12
+ * @LastEditTime: 2025-05-09 20:02:52
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -301,6 +301,202 @@ if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir, { recursive: true });
     console.log(`已创建临时目录: ${tempDir}`);
 }
+
+/**
+ * @swagger
+ * /api/system/cpu:
+ *   get:
+ *     summary: 获取CPU使用信息
+ *     description: 返回CPU负载、核心数和频率等信息
+ *     responses:
+ *       200:
+ *         description: 成功获取CPU信息
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 currentLoad:
+ *                   type: number
+ *                   description: 当前CPU总负载百分比
+ *                 cores:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       load:
+ *                         type: number
+ *                       speed:
+ *                         type: number
+ */
+app.get('/api/system/cpu', async (req, res) => {
+    try {
+        const cpu = await si.currentLoad();
+        res.json(cpu);
+    } catch (error) {
+        console.error('获取CPU信息失败:', error);
+        res.status(500).json({
+            error: 'Failed to get CPU info',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /api/system/memory:
+ *   get:
+ *     summary: 获取内存使用信息
+ *     description: 返回内存总量、使用量和空闲量
+ *     responses:
+ *       200:
+ *         description: 成功获取内存信息
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 total:
+ *                   type: number
+ *                   description: 总内存(字节)
+ *                 free:
+ *                   type: number
+ *                   description: 空闲内存(字节)
+ *                 used:
+ *                   type: number
+ *                   description: 已用内存(字节)
+ */
+app.get('/api/system/memory', async (req, res) => {
+    try {
+        const memory = await si.mem();
+        res.json(memory);
+    } catch (error) {
+        console.error('获取内存信息失败:', error);
+        res.status(500).json({
+            error: 'Failed to get memory info',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /api/system/disk:
+ *   get:
+ *     summary: 获取磁盘使用信息
+ *     description: 返回磁盘总量、使用量和空闲量
+ *     responses:
+ *       200:
+ *         description: 成功获取磁盘信息
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 size:
+ *                   type: number
+ *                   description: 总大小(字节)
+ *                 used:
+ *                   type: number
+ *                   description: 已用空间(字节)
+ *                 available:
+ *                   type: number
+ *                   description: 可用空间(字节)
+ */
+app.get('/api/system/disk', async (req, res) => {
+    try {
+        const disks = await si.fsSize();
+        res.json(disks);
+    } catch (error) {
+        console.error('获取磁盘信息失败:', error);
+        res.status(500).json({
+            error: 'Failed to get disk info',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /api/system/network:
+ *   get:
+ *     summary: 获取网络状态信息
+ *     description: 返回网络接口状态和流量统计
+ *     responses:
+ *       200:
+ *         description: 成功获取网络信息
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 interfaces:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       iface:
+ *                         type: string
+ *                       operstate:
+ *                         type: string
+ *                       rx_bytes:
+ *                         type: number
+ *                       tx_bytes:
+ *                         type: number
+ */
+app.get('/api/system/network', async (req, res) => {
+    try {
+        const network = await si.networkStats();
+        res.json(network);
+    } catch (error) {
+        console.error('获取网络信息失败:', error);
+        res.status(500).json({
+            error: 'Failed to get network info',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /api/system/processes:
+ *   get:
+ *     summary: 获取进程列表
+ *     description: 返回系统当前运行的进程列表
+ *     responses:
+ *       200:
+ *         description: 成功获取进程列表
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 list:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       pid:
+ *                         type: number
+ *                       name:
+ *                         type: string
+ *                       cpu:
+ *                         type: number
+ *                       mem:
+ *                         type: number
+ */
+app.get('/api/system/processes', async (req, res) => {
+    try {
+        const processes = await si.processes();
+        res.json(processes);
+    } catch (error) {
+        console.error('获取进程列表失败:', error);
+        res.status(500).json({
+            error: 'Failed to get processes',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
