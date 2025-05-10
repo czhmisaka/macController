@@ -1,0 +1,254 @@
+:root {
+    --neon-blue: #0ff0fc;
+    --neon-pink: #ff2a6d;
+    --neon-purple: #c724b1;
+    --neon-green: #05f0a5;
+    --dark-bg: #0d0221;
+    --darker-bg: #060114;
+    --text-color: #e0e0e0;
+    --text-dim: rgba(224, 224, 224, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Courier New", monospace;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    line-height: 1.6;
+}
+
+.cyber-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* 头部样式 */
+.cyber-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--neon-blue);
+    margin-bottom: 30px;
+}
+
+.cyber-title {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(15, 240, 252, 0.3);
+}
+
+.cyber-status {
+    color: var(--neon-green);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+/* 主内容区 */
+.cyber-main {
+    height: 100%;
+    overflow: hidden;
+}
+
+.cyber-section {
+    height: 100%;
+    margin-bottom: 40px;
+}
+
+.cyber-subtitle {
+    font-size: 1.8rem;
+    color: var(--neon-purple);
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+/* 网格布局 */
+.cyber-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    height: 100%;
+}
+
+/* 卡片样式 */
+.cyber-card {
+    height: 20vh;
+    background: var(--darker-bg);
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    padding: 15px;
+    max-height: 100%;
+    box-shadow: 0 0 15px rgba(15, 240, 252, 0.1);
+    transition: all 0.3s ease;
+}
+
+.cyber-card:hover {
+    box-shadow: 0 0 20px rgba(15, 240, 252, 0.3);
+    transform: translateY(-5px);
+}
+
+.cyber-card h3 {
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+}
+
+/* 图表容器 */
+.chart-container {
+    position: relative;
+    height: calc(100% - 40px);
+    width: 100%;
+}
+
+/* 表格样式 */
+.cyber-table-container {
+    overflow-x: auto;
+}
+
+.cyber-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--darker-bg);
+    border: 1px solid var(--neon-pink);
+    border-radius: 5px;
+}
+
+.cyber-table th,
+.cyber-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 42, 109, 0.3);
+}
+
+.cyber-table th {
+    background-color: rgba(255, 42, 109, 0.1);
+    color: var(--neon-pink);
+    font-weight: bold;
+}
+
+.cyber-table tr:hover {
+    background-color: rgba(255, 42, 109, 0.05);
+}
+
+/* 控制面板 */
+.cyber-control-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.cyber-control-card {
+    background: var(--darker-bg);
+    border: 1px solid var(--neon-green);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(5, 240, 165, 0.1);
+}
+
+.cyber-control-card h3 {
+    color: var(--neon-green);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-group label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--text-dim);
+}
+
+.control-group input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--neon-blue);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 3px;
+    outline: none;
+}
+
+.control-group input:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 5px var(--neon-pink);
+}
+
+button {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+    color: var(--dark-bg);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(15, 240, 252, 0.4);
+}
+
+/* 页脚 */
+.cyber-footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--neon-purple);
+    margin-top: 30px;
+}
+
+.cyber-timestamp {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .cyber-main {
+        grid-template-columns: 1fr;
+    }
+
+    .cyber-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .cyber-title {
+        font-size: 2rem;
+    }
+
+    .chart-container {
+        min-height: 150px;
+    }
+}
+
+.gridCard {
+    max-width: 230px;
+    height: auto;
+    min-height: 25vh;
+    position: relative;
+    display: block;
+    float: left;
+    margin: 12px;
+}

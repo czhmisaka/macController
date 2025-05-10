@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务器控制面板</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="cyber-container">
+        <main class="cyber-main">
+            <div class="gridCard cyber-card">
+                <h3>CPU 使用率</h3>
+                <div class="chart-container">
+                    <canvas id="cpu-chart"></canvas>
+                </div>
+            </div>
+            <div class="gridCard cyber-card">
+                <h3>内存使用</h3>
+                <div class="chart-container">
+                    <canvas id="memory-chart"></canvas>
+                </div>
+            </div>
+            <div class="gridCard cyber-card">
+                <h3>磁盘空间</h3>
+                <div class="chart-container">
+                    <canvas id="disk-chart"></canvas>
+                </div>
+            </div>
+            <div class="gridCard cyber-card">
+                <h3>网络活动</h3>
+                <div class="chart-container">
+                    <canvas id="network-chart"></canvas>
+                </div>
+            </div>
+
+            <div class=" gridCard cyber-card">
+                <table class="">
+                    <thead>
+                        <tr>
+                            <th>PID</th>
+                            <th>进程名</th>
+                            <th>CPU (%)</th>
+                            <th>内存 (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="process-body">
+                    </tbody>
+                </table>
+            </div>
+            <div class="gridCard cyber-control-card">
+                <h3>鼠标控制</h3>
+                <div class="control-group">
+                    <label>
+                        X 坐标:
+                        <input type="number" id="mouse-x" placeholder="X坐标">
+                    </label>
+                    <label>
+                        Y 坐标:
+                        <input type="number" id="mouse-y" placeholder="Y坐标">
+                    </label>
+                    <button id="move-mouse">移动鼠标</button>
+                </div>
+            </div>
+            <div class="gridCard cyber-control-card">
+                <h3>键盘控制</h3>
+                <div class="control-group">
+                    <label>
+                        输入文本:
+                        <input type="text" id="keyboard-input" placeholder="输入要发送的文本">
+                    </label>
+                    <button id="send-keys">发送按键</button>
+                </div>
+            </div>
+        </main>
+
+        <p class="cyber-timestamp" id="last-updated">最后更新: 正在加载...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

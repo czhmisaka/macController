@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-09 20:02:52
+ * @LastEditTime: 2025-05-10 11:33:53
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -15,7 +15,7 @@ import sharp from 'sharp';
 import { analyzeImage } from './glm-image';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import { captureAndProcessScreenshot, getDisplayScaling } from './screen-utils';
+import { captureAndProcessScreenshot, getDisplayScaling, captureScreenshotAsBase64 } from './screen-utils';
 
 import si from 'systeminformation';
 import { execSync } from 'child_process';
@@ -493,6 +493,137 @@ app.get('/api/system/processes', async (req, res) => {
         console.error('获取进程列表失败:', error);
         res.status(500).json({
             error: 'Failed to get processes',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /screenshot:
+ *   get:
+ *     summary: 获取全屏截图
+ *     description: 返回Base64编码的全屏截图
+ *     responses:
+ *       200:
+ *         description: 成功获取截图
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 image:
+ *                   type: string
+ *                   description: Base64编码的PNG图片
+ *       500:
+ *         description: 截图失败
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Failed to capture screenshot"
+ */
+app.get('/screenshot', async (req, res) => {
+    try {
+        const base64Image = await captureScreenshotAsBase64();
+        res.json({ image: base64Image });
+    } catch (error) {
+        console.error('截图失败:', error);
+        res.status(500).json({
+            error: 'Failed to capture screenshot',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /screenshot/region:
+ *   post:
+ *     summary: 获取区域截图
+ *     description: 返回Base64编码的指定区域截图
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               x:
+ *                 type: number
+ *                 description: 区域左上角X坐标
+ *               y:
+ *                 type: number
+ *                 description: 区域左上角Y坐标
+ *               width:
+ *                 type: number
+ *                 description: 区域宽度
+ *               height:
+ *                 type: number
+ *                 description: 区域高度
+ *     responses:
+ *       200:
+ *         description: 成功获取区域截图
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 image:
+ *                   type: string
+ *                   description: Base64编码的PNG图片
+ *       400:
+ *         description: 无效参数
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Invalid region parameters"
+ *       500:
+ *         description: 截图失败
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Failed to capture region screenshot"
+ */
+app.post('/screenshot/region', async (req, res) => {
+    const { x, y, width, height } = req.body;
+
+    // 参数验证
+    if (x === undefined || y === undefined ||
+        width === undefined || height === undefined) {
+        return res.status(400).json({
+            error: 'Invalid region parameters',
+            details: 'x, y, width and height are required'
+        });
+    }
+
+    if (width <= 0 || height <= 0) {
+        return res.status(400).json({
+            error: 'Invalid region parameters',
+            details: 'width and height must be positive numbers'
+        });
+    }
+
+    try {
+        const base64Image = await captureScreenshotAsBase64({
+            region: { x, y, width, height }
+        });
+        res.json({ image: base64Image });
+    } catch (error) {
+        console.error('区域截图失败:', error);
+        res.status(500).json({
+            error: 'Failed to capture region screenshot',
             details: error instanceof Error ? error.message : String(error)
         });
     }

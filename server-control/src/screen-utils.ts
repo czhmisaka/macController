@@ -71,6 +71,22 @@ export function removeRowPadding(
     return result;
 }
 
+// 扩展截图选项
+interface Region {
+    x?: number;
+    y?: number;
+    width?: number;
+    height?: number;
+}
+
+interface ScreenshotOptions {
+    quality?: number; // 图片质量 (1-100)
+    compressionLevel?: number; // 压缩级别 (0-9)
+    outputDir?: string; // 输出目录
+    fileName?: string; // 文件名
+    region?: Region; // 截图区域
+}
+
 // 完整的截图捕获和处理流程
 export async function captureAndProcessScreenshot(
     options: ScreenshotOptions = {}
@@ -79,7 +95,8 @@ export async function captureAndProcessScreenshot(
         quality = 80,
         compressionLevel = 6,
         outputDir = path.join(process.cwd(), 'temp'),
-        fileName = 'screenshot.png'
+        fileName = 'screenshot.png',
+        region
     } = options;
 
     try {
@@ -89,9 +106,23 @@ export async function captureAndProcessScreenshot(
         }
 
         // 2. 捕获屏幕截图
-        const screenshot = robot.screen.capture();
+        const screenshot = region
+            ? robot.screen.capture(region.x, region.y, region.width, region.height)
+            : robot.screen.capture();
+
         if (!screenshot || !screenshot.image) {
             throw new Error('屏幕截图捕获失败');
+        }
+
+        // 验证区域参数
+        if (region) {
+            if (region.x === undefined || region.y === undefined ||
+                region.width === undefined || region.height === undefined) {
+                throw new Error('区域截图需要完整的x,y,width,height参数');
+            }
+            if (region.width <= 0 || region.height <= 0) {
+                throw new Error('截图区域宽高必须大于0');
+            }
         }
 
         // 3. 获取显示器缩放信息
@@ -137,6 +168,16 @@ export async function captureAndProcessScreenshot(
         console.error('截图处理失败:', error);
         throw new Error(`截图处理失败: ${error instanceof Error ? error.message : String(error)}`);
     }
+}
+
+// 新增: 获取Base64格式截图
+export async function captureScreenshotAsBase64(
+    options: ScreenshotOptions = {}
+): Promise<string> {
+    const result = await captureAndProcessScreenshot(options);
+    const imageBuffer = fs.readFileSync(result.filePath);
+    fs.unlinkSync(result.filePath); // 删除临时文件
+    return imageBuffer.toString('base64');
 }
 
 // 辅助函数：获取临时目录路径
