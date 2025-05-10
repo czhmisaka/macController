@@ -52,8 +52,8 @@ function initChart(canvasId, label, backgroundColor) {
             }
         }
     });
-}
 
+}
 // 从服务获取数据并更新图表
 function updateCharts() {
     fetch('/system-info')
@@ -118,23 +118,6 @@ function updateTimestamp() {
     const timestampElement = document.getElementById('last-updated');
     timestampElement.textContent = `最后更新: ${now.toLocaleString('zh-CN')}`;
 }
-
-// // 鼠标控制功能
-// document.getElementById('move-mouse').addEventListener('click', () => {
-//     const x = document.getElementById('mouse-x').value;
-//     const y = document.getElementById('mouse-y').value;
-//     alert(`模拟移动鼠标到坐标 (${x}, ${y})`);
-// });
-
-// // 键盘控制功能
-// document.getElementById('send-keys').addEventListener('click', () => {
-//     const text = document.getElementById('keyboard-input').value;
-//     if (text) {
-//         alert(`模拟发送按键: ${text}`);
-//         document.getElementById('keyboard-input').value = '';
-//     }
-// });
-
 // 启动数据更新
 updateCharts();
 
@@ -145,13 +128,32 @@ ws.onopen = () => {
     console.log('WebSocket连接已建立');
 };
 
+// 创建视频元素
+const videoElement = document.createElement('video');
+videoElement.autoplay = true;
+videoElement.muted = true;
+videoElement.style.position = 'fixed';
+videoElement.style.top = '0';
+videoElement.style.left = '0';
+videoElement.style.width = '100%';
+videoElement.style.height = '100%';
+videoElement.style.objectFit = 'cover';
+videoElement.style.zIndex = '-1';
+document.body.appendChild(videoElement);
+
+// 创建MediaSource和SourceBuffer
+const mediaSource = new MediaSource();
+videoElement.src = URL.createObjectURL(mediaSource);
+
+let sourceBuffer;
+mediaSource.addEventListener('sourceopen', () => {
+    sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001E"');
+});
+
 ws.onmessage = (event) => {
-    const message = JSON.parse(event.data);
-    if (message.type === 'screenshot') {
-        const base64Data = message.data.startsWith('data:')
-            ? message.data
-            : `data:image/png;base64,${message.data}`;
-        document.getElementById('fullscreen-bg').style.backgroundImage = `url(${base64Data})`;
+    console.log('收到数据:', event.data);
+    if (sourceBuffer && !sourceBuffer.updating && event.data instanceof ArrayBuffer) {
+        sourceBuffer.appendBuffer(new Uint8Array(event.data));
     }
 };
 

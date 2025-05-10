@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-10 13:59:22
+ * @LastEditTime: 2025-05-10 16:20:32
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -11,12 +11,14 @@ import dotenv from 'dotenv';
 import axios from 'axios';
 import * as fs from 'fs';
 import * as path from 'path';
+import { PassThrough } from 'stream';
 import { createCanvas, loadImage } from 'canvas';
 import sharp from 'sharp';
 import { analyzeImage } from './glm-image';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { captureAndProcessScreenshot, getDisplayScaling, captureScreenshotAsBase64 } from './screen-utils';
+import { VideoStreamer } from './video-utils';
 
 import si from 'systeminformation';
 import { execSync } from 'child_process';
@@ -701,6 +703,7 @@ app.get('/screenshot', async (req, res) => {
  *                   type: string
  *                   example: "Failed to capture region screenshot"
  */
+
 app.post('/screenshot/region', async (req, res) => {
     const { x, y, width, height } = req.body;
 
@@ -787,3 +790,4 @@ wss.on('connection', (ws) => {
         clearInterval(interval);
     });
 });
+
