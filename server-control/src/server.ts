@@ -1,10 +1,11 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-10 11:33:53
+ * @LastEditTime: 2025-05-10 13:59:22
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
+import { WebSocketServer } from 'ws';
 import robot from 'robotjs';
 import dotenv from 'dotenv';
 import axios from 'axios';
@@ -500,6 +501,110 @@ app.get('/api/system/processes', async (req, res) => {
 
 /**
  * @swagger
+ * /system-info:
+ *   get:
+ *     summary: 获取所有系统信息
+ *     description: 返回CPU、内存、磁盘、网络和进程的综合信息
+ *     responses:
+ *       200:
+ *         description: 成功获取系统信息
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 cpu:
+ *                   type: object
+ *                   properties:
+ *                     usage:
+ *                       type: number
+ *                 memory:
+ *                   type: object
+ *                   properties:
+ *                     usage:
+ *                       type: number
+ *                 disk:
+ *                   type: object
+ *                   properties:
+ *                     usage:
+ *                       type: number
+ *                 network:
+ *                   type: object
+ *                   properties:
+ *                     speed:
+ *                       type: number
+ *                 processes:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       pid:
+ *                         type: number
+ *                       name:
+ *                         type: string
+ *                       cpu:
+ *                         type: number
+ *                       mem:
+ *                         type: number
+ */
+app.get('/system-info', async (req, res) => {
+    try {
+        const [cpu, memory, disks, network, processes] = await Promise.all([
+            si.currentLoad(),
+            si.mem(),
+            si.fsSize(),
+            si.networkStats(),
+            si.processes()
+        ]);
+
+        // 计算磁盘总使用率
+        const totalDisk = disks.reduce((acc, disk) => {
+            acc.used += disk.used;
+            acc.size += disk.size;
+            return acc;
+        }, { used: 0, size: 0 });
+
+        const diskUsage = totalDisk.size > 0 ?
+            Math.round((totalDisk.used / totalDisk.size) * 100) : 0;
+
+        res.json({
+            success: true,
+            cpu: {
+                usage: cpu.currentLoad
+            },
+            memory: {
+                usage: memory.used / memory.total * 100
+            },
+            disk: {
+                usage: diskUsage
+            },
+            network: {
+                speed: network[0]?.rx_bytes || 0
+            },
+            processes: processes.list.map((p: any) => {
+                return {
+                    pid: p.pid,
+                    name: p.name,
+                    cpu: p.cpu,
+                    memory: p.mem
+                }
+            })
+        });
+    } catch (error) {
+        console.error('获取系统信息失败:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to get system info',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
  * /screenshot:
  *   get:
  *     summary: 获取全屏截图
@@ -629,6 +734,56 @@ app.post('/screenshot/region', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
+// 服务控制面板静态文件
+const panelPath = path.join(__dirname, '../control-panel');
+console.log('控制面板路径:', panelPath);
+console.log('路径是否存在:', fs.existsSync(panelPath));
+app.use('/panel', express.static(panelPath, {
+    index: 'index.html',
+    fallthrough: false
+}));
+
+// 添加错误处理中间件
+app.use('/panel', (
+    err: Error,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+) => {
+    console.error('控制面板服务错误:', err);
+    res.status(500).send('控制面板服务出错');
+});
+
+// 调试控制面板路径
+const fullPanelPath = path.resolve(panelPath);
+console.log('完整控制面板路径:', fullPanelPath);
+console.log('目录内容:', fs.readdirSync(fullPanelPath));
+
+const server = app.listen(port, () => {
     console.log(`Server running on port ${port}`);
+});
+
+// 创建WebSocket服务器
+const wss = new WebSocketServer({ server });
+
+// 定时推送全屏截图
+wss.on('connection', (ws) => {
+    console.log('WebSocket client connected');
+
+    const interval = setInterval(async () => {
+        try {
+            const base64Image = await captureScreenshotAsBase64();
+            ws.send(JSON.stringify({
+                type: 'screenshot',
+                data: base64Image
+            }));
+        } catch (error) {
+            console.error('推送截图失败:', error);
+        }
+    }, 200); // 每秒推送一次
+
+    ws.on('close', () => {
+        console.log('WebSocket client disconnected');
+        clearInterval(interval);
+    });
 });

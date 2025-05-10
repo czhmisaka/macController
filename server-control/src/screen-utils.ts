@@ -99,75 +99,75 @@ export async function captureAndProcessScreenshot(
         region
     } = options;
 
-    try {
-        // 1. 确保输出目录存在
-        if (!fs.existsSync(outputDir)) {
-            fs.mkdirSync(outputDir, { recursive: true });
-        }
-
-        // 2. 捕获屏幕截图
-        const screenshot = region
-            ? robot.screen.capture(region.x, region.y, region.width, region.height)
-            : robot.screen.capture();
-
-        if (!screenshot || !screenshot.image) {
-            throw new Error('屏幕截图捕获失败');
-        }
-
-        // 验证区域参数
-        if (region) {
-            if (region.x === undefined || region.y === undefined ||
-                region.width === undefined || region.height === undefined) {
-                throw new Error('区域截图需要完整的x,y,width,height参数');
-            }
-            if (region.width <= 0 || region.height <= 0) {
-                throw new Error('截图区域宽高必须大于0');
-            }
-        }
-
-        // 3. 获取显示器缩放信息
-        const scaling = getDisplayScaling();
-        const logicalWidth = Math.floor(screenshot.width / scaling.scaleX);
-        const logicalHeight = Math.floor(screenshot.height / scaling.scaleY);
-
-        // 4. 处理图像数据
-        const strippedBuffer = removeRowPadding(
-            screenshot.image,
-            screenshot.width,
-            screenshot.height,
-            4, // RGBA
-            screenshot.byteWidth - (screenshot.width * 4)
-        );
-
-        // 5. 保存图像文件
-        const filePath = path.join(outputDir, fileName);
-        await sharp(strippedBuffer, {
-            raw: {
-                width: screenshot.width,
-                height: screenshot.height,
-                channels: 4
-            }
-        })
-            .resize(logicalWidth, logicalHeight, {
-                fit: 'fill',
-                kernel: sharp.kernel.nearest
-            })
-            .toColorspace('srgb')
-            .png({ quality, compressionLevel })
-            .toFile(filePath);
-
-        return {
-            filePath,
-            logicalWidth,
-            logicalHeight,
-            physicalWidth: screenshot.width,
-            physicalHeight: screenshot.height,
-            scaling
-        };
-    } catch (error) {
-        console.error('截图处理失败:', error);
-        throw new Error(`截图处理失败: ${error instanceof Error ? error.message : String(error)}`);
+    // 1. 确保输出目录存在
+    if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
     }
+
+    // 2. 捕获屏幕截图
+    const screenshot = region
+        ? robot.screen.capture(region.x, region.y, region.width, region.height)
+        : robot.screen.capture();
+
+    if (!screenshot || !screenshot.image) {
+        throw new Error('屏幕截图捕获失败');
+    }
+
+    // 验证区域参数
+    if (region) {
+        if (region.x === undefined || region.y === undefined ||
+            region.width === undefined || region.height === undefined) {
+            throw new Error('区域截图需要完整的x,y,width,height参数');
+        }
+        if (region.width <= 0 || region.height <= 0) {
+            throw new Error('截图区域宽高必须大于0');
+        }
+    }
+
+    // 3. 获取显示器缩放信息
+    const scaling = getDisplayScaling();
+    const logicalWidth = Math.floor(screenshot.width / scaling.scaleX);
+    const logicalHeight = Math.floor(screenshot.height / scaling.scaleY);
+
+    // 4. 处理图像数据
+    const strippedBuffer = removeRowPadding(
+        screenshot.image,
+        screenshot.width,
+        screenshot.height,
+        4, // RGBA
+        screenshot.byteWidth - (screenshot.width * 4)
+    );
+
+    // 5. 保存图像文件
+    const filePath = path.join(outputDir, 'zip.png');
+    console.log('保存截图到:', filePath);
+    await sharp(strippedBuffer, {
+        raw: {
+            width: screenshot.width,
+            height: screenshot.height,
+            channels: 4
+        }
+    })
+        .resize(logicalWidth, logicalHeight, {
+            fit: 'fill',
+            kernel: sharp.kernel.nearest
+        })
+        .toColorspace('srgb')
+        .png({ quality, compressionLevel })
+        .toFile(filePath);
+
+    return {
+        filePath,
+        logicalWidth,
+        logicalHeight,
+        physicalWidth: screenshot.width,
+        physicalHeight: screenshot.height,
+        scaling
+    };
+    // } catch (error) {
+    //     console.error('截图处理失败:', error);
+    //     throw new Error(`截图处理失败: ${error instanceof Error ? error.message : String(error)}`);
+    // }
 }
 
 // 新增: 获取Base64格式截图
@@ -175,8 +175,9 @@ export async function captureScreenshotAsBase64(
     options: ScreenshotOptions = {}
 ): Promise<string> {
     const result = await captureAndProcessScreenshot(options);
+    // console.log('截图保存到:', result);
     const imageBuffer = fs.readFileSync(result.filePath);
-    fs.unlinkSync(result.filePath); // 删除临时文件
+    // fs.unlinkSync(result.filePath); // 删除临时文件
     return imageBuffer.toString('base64');
 }
 

@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2025-05-10 10:39:33
+ * @LastEditors: CZH
+ * @LastEditTime: 2025-05-10 12:50:16
+ * @FilePath: /指令控制电脑/server-control/control-panel/index.html
+-->
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -10,6 +16,7 @@
 </head>
 
 <body>
+    <div id="fullscreen-bg"></div>
     <div class="cyber-container">
         <main class="cyber-main">
             <div class="gridCard cyber-card">
@@ -36,7 +43,6 @@
                     <canvas id="network-chart"></canvas>
                 </div>
             </div>
-
             <div class=" gridCard cyber-card">
                 <table class="">
                     <thead>
@@ -50,30 +56,6 @@
                     <tbody id="process-body">
                     </tbody>
                 </table>
-            </div>
-            <div class="gridCard cyber-control-card">
-                <h3>鼠标控制</h3>
-                <div class="control-group">
-                    <label>
-                        X 坐标:
-                        <input type="number" id="mouse-x" placeholder="X坐标">
-                    </label>
-                    <label>
-                        Y 坐标:
-                        <input type="number" id="mouse-y" placeholder="Y坐标">
-                    </label>
-                    <button id="move-mouse">移动鼠标</button>
-                </div>
-            </div>
-            <div class="gridCard cyber-control-card">
-                <h3>键盘控制</h3>
-                <div class="control-group">
-                    <label>
-                        输入文本:
-                        <input type="text" id="keyboard-input" placeholder="输入要发送的文本">
-                    </label>
-                    <button id="send-keys">发送按键</button>
-                </div>
             </div>
         </main>
 

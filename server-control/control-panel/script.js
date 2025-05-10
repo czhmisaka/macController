@@ -54,22 +54,29 @@ function initChart(canvasId, label, backgroundColor) {
     });
 }
 
-// 模拟数据更新
+// 从服务获取数据并更新图表
 function updateCharts() {
-    // CPU 数据
-    updateChart(cpuChart, Math.random() * 100);
+    fetch('/system-info')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // CPU 数据
+                updateChart(cpuChart, data.cpu.usage);
 
-    // 内存数据
-    updateChart(memoryChart, 30 + Math.random() * 50);
+                // 内存数据
+                updateChart(memoryChart, data.memory.usage);
 
-    // 磁盘数据
-    updateChart(diskChart, 10 + Math.random() * 80);
+                // 磁盘数据
+                updateChart(diskChart, data.disk.usage);
 
-    // 网络数据
-    updateChart(networkChart, Math.random() * 1000);
+                // 网络数据
+                updateChart(networkChart, data.network.speed);
 
-    // 更新进程表格
-    updateProcessTable();
+                // 更新进程表格
+                updateProcessTable(data.processes);
+            }
+        })
+        .catch(error => console.error('获取系统信息失败:', error));
 
     // 更新时间戳
     updateTimestamp();
@@ -88,27 +95,20 @@ function updateChart(chart, newValue) {
 }
 
 // 更新进程表格
-function updateProcessTable() {
+function updateProcessTable(processes = []) {
     const processBody = document.getElementById('process-body');
     processBody.innerHTML = '';
 
-    // 模拟进程数据
-    const processes = [
-        { pid: 1234, name: 'node', cpu: (Math.random() * 30).toFixed(1), memory: (10 + Math.random() * 20).toFixed(1) },
-        { pid: 5678, name: 'chrome', cpu: (Math.random() * 40).toFixed(1), memory: (20 + Math.random() * 30).toFixed(1) },
-        { pid: 9012, name: 'vscode', cpu: (Math.random() * 20).toFixed(1), memory: (15 + Math.random() * 25).toFixed(1) },
-        { pid: 3456, name: 'terminal', cpu: (Math.random() * 10).toFixed(1), memory: (5 + Math.random() * 10).toFixed(1) }
-    ];
-
-    processes.forEach(proc => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
+    processes.forEach((proc, i) => {
+        if (i < 10) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
             <td>${proc.pid}</td>
             <td>${proc.name}</td>
             <td>${proc.cpu}</td>
-            <td>${proc.memory}</td>
-        `;
-        processBody.appendChild(row);
+            <td>${proc.memory}</td>`;
+            processBody.appendChild(row);
+        }
     });
 }
 
@@ -119,21 +119,46 @@ function updateTimestamp() {
     timestampElement.textContent = `最后更新: ${now.toLocaleString('zh-CN')}`;
 }
 
-// 鼠标控制功能
-document.getElementById('move-mouse').addEventListener('click', () => {
-    const x = document.getElementById('mouse-x').value;
-    const y = document.getElementById('mouse-y').value;
-    alert(`模拟移动鼠标到坐标 (${x}, ${y})`);
-});
+// // 鼠标控制功能
+// document.getElementById('move-mouse').addEventListener('click', () => {
+//     const x = document.getElementById('mouse-x').value;
+//     const y = document.getElementById('mouse-y').value;
+//     alert(`模拟移动鼠标到坐标 (${x}, ${y})`);
+// });
 
-// 键盘控制功能
-document.getElementById('send-keys').addEventListener('click', () => {
-    const text = document.getElementById('keyboard-input').value;
-    if (text) {
-        alert(`模拟发送按键: ${text}`);
-        document.getElementById('keyboard-input').value = '';
-    }
-});
+// // 键盘控制功能
+// document.getElementById('send-keys').addEventListener('click', () => {
+//     const text = document.getElementById('keyboard-input').value;
+//     if (text) {
+//         alert(`模拟发送按键: ${text}`);
+//         document.getElementById('keyboard-input').value = '';
+//     }
+// });
 
 // 启动数据更新
 updateCharts();
+
+// WebSocket连接
+const ws = new WebSocket(`ws://${window.location.hostname}:${window.location.port || 80}`);
+
+ws.onopen = () => {
+    console.log('WebSocket连接已建立');
+};
+
+ws.onmessage = (event) => {
+    const message = JSON.parse(event.data);
+    if (message.type === 'screenshot') {
+        const base64Data = message.data.startsWith('data:')
+            ? message.data
+            : `data:image/png;base64,${message.data}`;
+        document.getElementById('fullscreen-bg').style.backgroundImage = `url(${base64Data})`;
+    }
+};
+
+ws.onerror = (error) => {
+    console.error('WebSocket错误:', error);
+};
+
+ws.onclose = () => {
+    console.log('WebSocket连接已关闭');
+};
