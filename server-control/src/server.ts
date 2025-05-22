@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-10 16:53:20
+ * @LastEditTime: 2025-05-22 15:53:32
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -19,8 +19,12 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { captureAndProcessScreenshot, getDisplayScaling, captureScreenshotAsBase64 } from './screen-utils';
 import { VideoStreamer } from './video-utils';
+import { BrowserController } from './browser-controller';
 
 import si from 'systeminformation';
+
+// 初始化浏览器控制器
+const browserController = new BrowserController();
 import { execSync } from 'child_process';
 
 // 扩展systeminformation类型定义
@@ -704,6 +708,148 @@ app.get('/screenshot', async (req, res) => {
  *                   example: "Failed to capture region screenshot"
  */
 
+/**
+ * @swagger
+ * /browser/launch:
+ *   post:
+ *     summary: 启动浏览器
+ *     description: 启动一个新的浏览器实例
+ *     responses:
+ *       200:
+ *         description: 浏览器启动成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ */
+app.post('/browser/launch', async (req, res) => {
+    try {
+        const result = await browserController.launch();
+        res.json(result);
+    } catch (error) {
+        console.error('浏览器启动失败:', error);
+        res.status(500).json({
+            error: 'Failed to launch browser',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /browser/close:
+ *   post:
+ *     summary: 关闭浏览器
+ *     description: 关闭当前浏览器实例
+ *     responses:
+ *       200:
+ *         description: 浏览器关闭成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ */
+app.post('/browser/close', async (req, res) => {
+    try {
+        const result = await browserController.close();
+        res.json(result);
+    } catch (error) {
+        console.error('浏览器关闭失败:', error);
+        res.status(500).json({
+            error: 'Failed to close browser',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /browser/navigate:
+ *   post:
+ *     summary: 导航到URL
+ *     description: 在当前浏览器页面导航到指定URL
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               url:
+ *                 type: string
+ *                 description: 要导航到的URL
+ *                 example: "https://example.com"
+ *     responses:
+ *       200:
+ *         description: 导航成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 url:
+ *                   type: string
+ *                   example: "https://example.com"
+ */
+app.post('/browser/navigate', async (req, res) => {
+    const { url } = req.body;
+    try {
+        const result = await browserController.navigate(url);
+        res.json(result);
+    } catch (error) {
+        console.error('导航失败:', error);
+        res.status(500).json({
+            error: 'Failed to navigate',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /browser/screenshot:
+ *   get:
+ *     summary: 获取浏览器截图
+ *     description: 返回当前浏览器页面的Base64编码截图
+ *     responses:
+ *       200:
+ *         description: 截图成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 screenshot:
+ *                   type: string
+ *                   description: Base64编码的PNG图片
+ */
+app.get('/browser/screenshot', async (req, res) => {
+    try {
+        const result = await browserController.screenshot();
+        res.json(result);
+    } catch (error) {
+        console.error('截图失败:', error);
+        res.status(500).json({
+            error: 'Failed to capture screenshot',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
 app.post('/screenshot/region', async (req, res) => {
     const { x, y, width, height } = req.body;
 
@@ -741,7 +887,7 @@ app.post('/screenshot/region', async (req, res) => {
 const panelPath = path.join(__dirname, '../control-panel');
 console.log('控制面板路径:', panelPath);
 console.log('路径是否存在:', fs.existsSync(panelPath));
-app.use('/panel', express.static(panelPath, {
+app.use('/', express.static(panelPath, {
     index: 'index.html',
     fallthrough: false
 }));

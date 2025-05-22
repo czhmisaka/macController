@@ -118,6 +118,82 @@ function updateTimestamp() {
     const timestampElement = document.getElementById('last-updated');
     timestampElement.textContent = `最后更新: ${now.toLocaleString('zh-CN')}`;
 }
+// 浏览器控制功能
+document.getElementById('launch-browser').addEventListener('click', async () => {
+    try {
+        const response = await fetch('/browser/launch', { method: 'POST' });
+        const result = await response.json();
+        if (result.success) {
+            alert('浏览器启动成功');
+        } else {
+            alert('浏览器启动失败');
+        }
+    } catch (error) {
+        console.error('浏览器启动失败:', error);
+        alert('浏览器启动失败: ' + error.message);
+    }
+});
+
+document.getElementById('close-browser').addEventListener('click', async () => {
+    try {
+        const response = await fetch('/browser/close', { method: 'POST' });
+        const result = await response.json();
+        if (result.success) {
+            alert('浏览器已关闭');
+        } else {
+            alert('浏览器关闭失败');
+        }
+    } catch (error) {
+        console.error('浏览器关闭失败:', error);
+        alert('浏览器关闭失败: ' + error.message);
+    }
+});
+
+document.getElementById('navigate-btn').addEventListener('click', async () => {
+    const url = document.getElementById('browser-url').value;
+    if (!url) {
+        alert('请输入有效的URL');
+        return;
+    }
+
+    try {
+        const response = await fetch('/browser/navigate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url })
+        });
+        const result = await response.json();
+        if (result.success) {
+            alert(`已导航到: ${result.url}`);
+        } else {
+            alert('导航失败');
+        }
+    } catch (error) {
+        console.error('导航失败:', error);
+        alert('导航失败: ' + error.message);
+    }
+});
+
+document.getElementById('screenshot-btn').addEventListener('click', async () => {
+    try {
+        const response = await fetch('/browser/screenshot');
+        const result = await response.json();
+        if (result.success && result.screenshot) {
+            const container = document.getElementById('screenshot-container');
+            const img = document.getElementById('browser-screenshot');
+            img.src = `data:image/png;base64,${result.screenshot}`;
+            container.style.display = 'block';
+        } else {
+            alert('截图失败');
+        }
+    } catch (error) {
+        console.error('截图失败:', error);
+        alert('截图失败: ' + error.message);
+    }
+});
+
 // 启动数据更新
 updateCharts();
 
