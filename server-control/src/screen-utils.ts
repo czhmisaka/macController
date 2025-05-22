@@ -181,6 +181,85 @@ export async function captureScreenshotAsBase64(
     return imageBuffer.toString('base64');
 }
 
+// 多模态分析相关类型
+interface ImageAnalysisOptions {
+    model?: string;
+    prompt?: string;
+    detailLevel?: 'low' | 'high';
+    timeout?: number;
+}
+
+interface ImageAnalysisResult {
+    content: string;
+    fullResponse: any;
+    elapsed: number;
+}
+
+// 分析Base64格式图片
+export async function analyzeImage(
+    base64Image: string,
+    options: ImageAnalysisOptions = {}
+): Promise<ImageAnalysisResult> {
+    const {
+        model = 'qwen2.5-vl-7b-instruct',
+        prompt = '请详细描述这张图片的内容',
+        detailLevel = 'high',
+        timeout = 30000
+    } = options;
+
+    const startTime = Date.now();
+
+    try {
+        const response = await fetch('http://localhost:1234/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model,
+                messages: [{
+                    role: 'user',
+                    content: [
+                        { type: 'text', text: prompt },
+                        {
+                            type: 'image_url',
+                            image_url: {
+                                url: `data:image/png;base64,${base64Image}`,
+                                detail: detailLevel
+                            }
+                        }
+                    ]
+                }],
+                temperature: 0.7,
+                max_tokens: 1000
+            }),
+            signal: AbortSignal.timeout(timeout)
+        });
+
+        if (!response.ok) {
+            throw new Error(`API请求失败: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const elapsed = Date.now() - startTime;
+
+        return {
+            content: data.choices[0]?.message?.content || '',
+            fullResponse: data,
+            elapsed
+        };
+    } catch (error) {
+        console.error('图片分析失败:', error);
+        throw new Error(`图片分析失败: ${error instanceof Error ? error.message : String(error)}`);
+    }
+}
+
+// 截图并分析
+export async function analyzeScreenshot(
+    options: ScreenshotOptions & ImageAnalysisOptions = {}
+): Promise<ImageAnalysisResult> {
+    const base64Image = await captureScreenshotAsBase64(options);
+    return analyzeImage(base64Image, options);
+}
+
 // 辅助函数：获取临时目录路径
 export function getTempDir(): string {
     return path.join(process.cwd(), 'temp');

@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-10 16:20:32
+ * @LastEditTime: 2025-05-10 16:53:20
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -769,25 +769,41 @@ const server = app.listen(port, () => {
 // 创建WebSocket服务器
 const wss = new WebSocketServer({ server });
 
-// 定时推送全屏截图
+// 创建视频流实例
+const videoStreamer = new VideoStreamer({
+    fps: 15,
+    quality: 23,
+    device: '1' // 默认使用第一个视频设备
+});
+
+// 处理WebSocket视频流
 wss.on('connection', (ws) => {
     console.log('WebSocket client connected');
 
-    const interval = setInterval(async () => {
-        try {
-            const base64Image = await captureScreenshotAsBase64();
-            ws.send(JSON.stringify({
-                type: 'screenshot',
-                data: base64Image
-            }));
-        } catch (error) {
-            console.error('推送截图失败:', error);
-        }
-    }, 200); // 每秒推送一次
+    // 创建视频流管道
+    const stream = new PassThrough();
+
+    // 启动视频流
+    videoStreamer.start(stream);
+    console.log('视频流已启动');
+
+    // 将视频流数据发送给客户端
+    stream.on('data', (chunk) => {
+        console.log('收到视频数据块，长度:', chunk.length, '字节');
+        console.log('前16字节:', chunk.slice(0, 16).toString('hex'));
+        ws.send(JSON.stringify({
+            type: 'video',
+            data: chunk.toString('base64')
+        }));
+    });
+
+    // 处理错误
+    stream.on('error', (err) => {
+        console.error('视频流错误:', err);
+    });
 
     ws.on('close', () => {
         console.log('WebSocket client disconnected');
-        clearInterval(interval);
+        videoStreamer.stop();
     });
 });
-
