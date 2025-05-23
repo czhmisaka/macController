@@ -53,4 +53,18 @@
 重试中。
 
 --2025-05-22 16:24:01--  (尝试次数：17)  https://cdn.jsdelivr.net/npm/chart.js
-正在连接 cdn.jsdelivr.net (cdn.jsdelivr.net)|8.7.198.46|:443... 
+正在连接 cdn.jsdelivr.net (cdn.jsdelivr.net)|8.7.198.46|:443... 失败：Operation timed out。
+重试中。
+
+--2025-05-22 16:25:26--  (尝试次数：18)  https://cdn.jsdelivr.net/npm/chart.js
+正在连接 cdn.jsdelivr.net (cdn.jsdelivr.net)|8.7.198.46|:443... 失败：Operation timed out。
+重试中。
+
+--2025-05-22 16:26:51--  (尝试次数：19)  https://cdn.jsdelivr.net/npm/chart.js
+正在连接 cdn.jsdelivr.net (cdn.jsdelivr.net)|8.7.198.46|:443... 失败：Operation timed out。
+重试中。
+
+--2025-05-22 16:28:16--  (尝试次数：20)  https://cdn.jsdelivr.net/npm/chart.js
+正在连接 cdn.jsdelivr.net (cdn.jsdelivr.net)|8.7.198.46|:443... 失败：Operation timed out。
+放弃操作。
+

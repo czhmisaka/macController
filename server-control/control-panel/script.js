@@ -1,8 +1,58 @@
-// 初始化图表
-const cpuChart = initChart('cpu-chart', 'CPU 使用率 (%)', 'rgba(0, 240, 255, 0.5)');
-const memoryChart = initChart('memory-chart', '内存使用 (%)', 'rgba(255, 42, 109, 0.5)');
-const diskChart = initChart('disk-chart', '磁盘空间 (%)', 'rgba(199, 36, 177, 0.5)');
-const networkChart = initChart('network-chart', '网络活动 (KB/s)', 'rgba(5, 240, 165, 0.5)');
+// 通知功能
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <div style="padding: 10px 15px; 
+                   background: ${type === 'error' ? '#e74a3b' : type === 'success' ? '#1cc88a' : '#36b9cc'}; 
+                   color: white; 
+                   border-radius: 4px; 
+                   margin-bottom: 10px;
+                   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                   animation: fadeIn 0.3s ease-in-out;">
+            ${message}
+        </div>
+    `;
+
+    const notificationArea = document.getElementById('notification-area');
+    notificationArea.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s ease-in-out';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// 添加CSS动画
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(-20px); }
+    }
+`;
+document.head.appendChild(style);
+
+// 初始化图表 - 按需初始化
+let cpuChart, memoryChart, diskChart, networkChart;
+
+// 只在有对应canvas元素的页面初始化图表
+if (document.getElementById('cpu-chart')) {
+    cpuChart = initChart('cpu-chart', 'CPU 使用率 (%)', 'rgba(0, 240, 255, 0.5)');
+}
+if (document.getElementById('memory-chart')) {
+    memoryChart = initChart('memory-chart', '内存使用 (%)', 'rgba(255, 42, 109, 0.5)');
+}
+if (document.getElementById('disk-chart')) {
+    diskChart = initChart('disk-chart', '磁盘空间 (%)', 'rgba(199, 36, 177, 0.5)');
+}
+if (document.getElementById('network-chart')) {
+    networkChart = initChart('network-chart', '网络活动 (KB/s)', 'rgba(5, 240, 165, 0.5)');
+}
 
 // 初始化函数
 function initChart(canvasId, label, backgroundColor) {
@@ -123,14 +173,11 @@ document.getElementById('launch-browser').addEventListener('click', async () => 
     try {
         const response = await fetch('/browser/launch', { method: 'POST' });
         const result = await response.json();
-        if (result.success) {
-            alert('浏览器启动成功');
-        } else {
-            alert('浏览器启动失败');
-        }
+        showNotification(result.success ? '浏览器启动成功' : '浏览器启动失败',
+            result.success ? 'success' : 'error');
     } catch (error) {
         console.error('浏览器启动失败:', error);
-        alert('浏览器启动失败: ' + error.message);
+        showNotification(`浏览器启动失败: ${error.message}`, 'error');
     }
 });
 
@@ -138,21 +185,18 @@ document.getElementById('close-browser').addEventListener('click', async () => {
     try {
         const response = await fetch('/browser/close', { method: 'POST' });
         const result = await response.json();
-        if (result.success) {
-            alert('浏览器已关闭');
-        } else {
-            alert('浏览器关闭失败');
-        }
+        showNotification(result.success ? '浏览器已关闭' : '浏览器关闭失败',
+            result.success ? 'success' : 'error');
     } catch (error) {
         console.error('浏览器关闭失败:', error);
-        alert('浏览器关闭失败: ' + error.message);
+        showNotification(`浏览器关闭失败: ${error.message}`, 'error');
     }
 });
 
 document.getElementById('navigate-btn').addEventListener('click', async () => {
     const url = document.getElementById('browser-url').value;
     if (!url) {
-        alert('请输入有效的URL');
+        showNotification('请输入有效的URL', 'error');
         return;
     }
 
@@ -165,14 +209,11 @@ document.getElementById('navigate-btn').addEventListener('click', async () => {
             body: JSON.stringify({ url })
         });
         const result = await response.json();
-        if (result.success) {
-            alert(`已导航到: ${result.url}`);
-        } else {
-            alert('导航失败');
-        }
+        showNotification(result.success ? `已导航到: ${result.url}` : '导航失败',
+            result.success ? 'success' : 'error');
     } catch (error) {
         console.error('导航失败:', error);
-        alert('导航失败: ' + error.message);
+        showNotification(`导航失败: ${error.message}`, 'error');
     }
 });
 
@@ -186,57 +227,85 @@ document.getElementById('screenshot-btn').addEventListener('click', async () => 
             img.src = `data:image/png;base64,${result.screenshot}`;
             container.style.display = 'block';
         } else {
-            alert('截图失败');
+            showNotification('浏览器截图失败', 'error');
         }
     } catch (error) {
-        console.error('截图失败:', error);
-        alert('截图失败: ' + error.message);
+        console.error('浏览器截图失败:', error);
+        showNotification(`浏览器截图失败: ${error.message}`, 'error');
+    }
+});
+
+document.getElementById('screen-screenshot-btn').addEventListener('click', async () => {
+    try {
+        const response = await fetch('/screenshot');
+        const result = await response.json();
+        if (result.image) {
+            const container = document.getElementById('screen-screenshot-container');
+            const img = document.getElementById('screen-screenshot');
+            img.src = `data:image/png;base64,${result.image}`;
+            container.style.display = 'block';
+        } else {
+            showNotification('屏幕截图失败', 'error');
+        }
+    } catch (error) {
+        console.error('屏幕截图失败:', error);
+        showNotification(`屏幕截图失败: ${error.message}`, 'error');
     }
 });
 
 // 启动数据更新
 updateCharts();
 
-// WebSocket连接
-const ws = new WebSocket(`ws://${window.location.hostname}:${window.location.port || 80}`);
+// 按需初始化视频流功能
+function initVideoStream() {
+    const ws = new WebSocket(`ws://${window.location.hostname}:${window.location.port || 80}`);
 
-ws.onopen = () => {
-    console.log('WebSocket连接已建立');
-};
+    // 创建视频元素
+    const videoElement = document.createElement('video');
+    videoElement.autoplay = true;
+    videoElement.muted = true;
+    videoElement.style.position = 'fixed';
+    videoElement.style.top = '0';
+    videoElement.style.left = '0';
+    videoElement.style.width = '100%';
+    videoElement.style.height = '100%';
+    videoElement.style.objectFit = 'cover';
+    videoElement.style.zIndex = '-1';
+    document.body.appendChild(videoElement);
 
-// 创建视频元素
-const videoElement = document.createElement('video');
-videoElement.autoplay = true;
-videoElement.muted = true;
-videoElement.style.position = 'fixed';
-videoElement.style.top = '0';
-videoElement.style.left = '0';
-videoElement.style.width = '100%';
-videoElement.style.height = '100%';
-videoElement.style.objectFit = 'cover';
-videoElement.style.zIndex = '-1';
-document.body.appendChild(videoElement);
+    // 创建MediaSource和SourceBuffer
+    const mediaSource = new MediaSource();
+    videoElement.src = URL.createObjectURL(mediaSource);
 
-// 创建MediaSource和SourceBuffer
-const mediaSource = new MediaSource();
-videoElement.src = URL.createObjectURL(mediaSource);
+    let sourceBuffer;
+    mediaSource.addEventListener('sourceopen', () => {
+        sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001E"');
+    });
 
-let sourceBuffer;
-mediaSource.addEventListener('sourceopen', () => {
-    sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001E"');
-});
+    ws.onopen = () => {
+        console.log('WebSocket视频流连接已建立');
+    };
 
-ws.onmessage = (event) => {
-    console.log('收到数据:', event.data);
-    if (sourceBuffer && !sourceBuffer.updating && event.data instanceof ArrayBuffer) {
-        sourceBuffer.appendBuffer(new Uint8Array(event.data));
-    }
-};
+    ws.onmessage = (event) => {
+        try {
+            if (sourceBuffer && !sourceBuffer.updating && event.data instanceof ArrayBuffer) {
+                sourceBuffer.appendBuffer(new Uint8Array(event.data));
+            }
+        } catch (error) {
+            console.error('视频流数据处理错误:', error);
+        }
+    };
 
-ws.onerror = (error) => {
-    console.error('WebSocket错误:', error);
-};
+    ws.onerror = (error) => {
+        console.error('WebSocket视频流错误:', error);
+    };
 
-ws.onclose = () => {
-    console.log('WebSocket连接已关闭');
-};
+    ws.onclose = () => {
+        console.log('WebSocket视频流连接已关闭');
+    };
+
+    return ws;
+}
+
+// 注释掉自动初始化，改为按需调用
+// const videoStream = initVideoStream();

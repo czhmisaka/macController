@@ -1,7 +1,7 @@
 <!--
  * @Date: 2025-05-10 10:39:33
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-22 16:14:47
+ * @LastEditTime: 2025-05-22 17:04:25
  * @FilePath: /指令控制电脑/server-control/control-panel/index.html
 -->
 <!DOCTYPE html>
@@ -10,81 +10,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>服务器控制面板</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="lib/chart.js"></script>
+    <link rel="stylesheet" href="shared.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
-
   <body>
-    <div id="fullscreen-bg"></div>
-    <div class="cyber-container">
-      <main class="cyber-main">
-        <div class="gridCard cyber-card">
-          <h3>CPU 使用率</h3>
-          <div class="chart-container">
-            <canvas id="cpu-chart"></canvas>
-          </div>
-        </div>
-        <div class="gridCard cyber-card">
-          <h3>内存使用</h3>
-          <div class="chart-container">
-            <canvas id="memory-chart"></canvas>
-          </div>
-        </div>
-        <div class="gridCard cyber-card">
-          <h3>磁盘空间</h3>
-          <div class="chart-container">
-            <canvas id="disk-chart"></canvas>
-          </div>
-        </div>
-        <div class="gridCard cyber-card">
-          <h3>网络活动</h3>
-          <div class="chart-container">
-            <canvas id="network-chart"></canvas>
-          </div>
-        </div>
-        <div class="gridCard cyber-card cyber-table" style="max-width: 40vw">
-          <table class="">
-            <thead>
-              <tr>
-                <th>PID</th>
-                <th>进程名</th>
-                <th>CPU (%)</th>
-                <th>内存 (%)</th>
-              </tr>
-            </thead>
-            <tbody id="process-body"></tbody>
-          </table>
-        </div>
-        <div class="gridCard cyber-card">
-          <h3>浏览器控制</h3>
-          <div class="browser-controls">
-            <button id="launch-browser" class="cyber-button">启动浏览器</button>
-            <button id="close-browser" class="cyber-button">关闭浏览器</button>
-            <div class="url-input">
-              <input
-                type="text"
-                id="browser-url"
-                placeholder="输入URL (例如: https://example.com)"
-              />
-              <button id="navigate-btn" class="cyber-button">导航</button>
-            </div>
-            <button id="screenshot-btn" class="cyber-button">截图</button>
-          </div>
-          <div
-            id="screenshot-container"
-            style="display: none; margin-top: 10px"
-          >
-            <img
-              id="browser-screenshot"
-              style="max-width: 100%; border: 1px solid #00f0ff"
-            />
-          </div>
-        </div>
-      </main>
-
-      <p class="cyber-timestamp" id="last-updated">最后更新: 正在加载...</p>
+    <div class="nav-container">
+      <h2 style="padding: 20px; text-align: center">服务器控制</h2>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="cpu.html" class="nav-link">
+            <i class="fas fa-microchip"></i>
+            <span>CPU监控</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="memory.html" class="nav-link">
+            <i class="fas fa-memory"></i>
+            <span>内存监控</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="disk.html" class="nav-link">
+            <i class="fas fa-hdd"></i>
+            <span>磁盘监控</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="network.html" class="nav-link">
+            <i class="fas fa-network-wired"></i>
+            <span>网络监控</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="processes.html" class="nav-link">
+            <i class="fas fa-tasks"></i>
+            <span>进程管理</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="browser.html" class="nav-link">
+            <i class="fas fa-globe"></i>
+            <span>浏览器控制</span>
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <script src="script.js"></script>
+    <div class="main-content">
+      <div class="card">
+        <h1 class="card-title">欢迎使用服务器控制面板</h1>
+        <p>请从左侧菜单选择要查看的功能模块</p>
+      </div>
+    </div>
   </body>
 </html>

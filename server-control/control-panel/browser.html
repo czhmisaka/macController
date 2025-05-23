@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浏览器控制 - 服务器控制面板</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="nav-container">
+      <h2 style="padding: 20px; text-align: center">服务器控制</h2>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-arrow-left"></i>
+            <span>返回主菜单</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      id="notification-area"
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        max-width: 300px;
+      "
+    ></div>
+    <div class="main-content">
+      <div class="card">
+        <h1 class="card-title">浏览器控制</h1>
+        <div
+          class="browser-controls"
+          style="display: flex; flex-direction: column; gap: 15px"
+        >
+          <div style="display: flex; gap: 10px">
+            <button
+              id="launch-browser"
+              class="cyber-button"
+              style="
+                padding: 10px 15px;
+                background-color: #4e73df;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              启动浏览器
+            </button>
+            <button
+              id="close-browser"
+              class="cyber-button"
+              style="
+                padding: 10px 15px;
+                background-color: #e74a3b;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              关闭浏览器
+            </button>
+          </div>
+
+          <div
+            class="url-input"
+            style="display: flex; gap: 10px; align-items: center"
+          >
+            <input
+              type="text"
+              id="browser-url"
+              placeholder="输入URL (例如: https://example.com)"
+              style="
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+              "
+            />
+            <button
+              id="navigate-btn"
+              class="cyber-button"
+              style="
+                padding: 10px 15px;
+                background-color: #1cc88a;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              导航
+            </button>
+          </div>
+
+          <div style="display: flex; gap: 10px">
+            <button
+              id="screenshot-btn"
+              class="cyber-button"
+              style="
+                padding: 10px 15px;
+                background-color: #36b9cc;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              浏览器截图
+            </button>
+            <button
+              id="screen-screenshot-btn"
+              class="cyber-button"
+              style="
+                padding: 10px 15px;
+                background-color: #f6c23e;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              屏幕截图
+            </button>
+          </div>
+
+          <div
+            id="screenshot-container"
+            style="display: none; margin-top: 20px"
+          >
+            <img
+              id="browser-screenshot"
+              style="
+                max-width: 100%;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+              "
+            />
+          </div>
+
+          <div
+            id="screen-screenshot-container"
+            style="display: none; margin-top: 20px"
+          >
+            <img
+              id="screen-screenshot"
+              style="
+                max-width: 100%;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

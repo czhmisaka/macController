@@ -1,0 +1,88 @@
+<!--
+ * @Date: 2025-05-22 17:05:22
+ * @LastEditors: CZH
+ * @LastEditTime: 2025-05-22 17:05:53
+ * @FilePath: /指令控制电脑/server-control/control-panel/memory.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内存监控 - 服务器控制面板</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="lib/chart.js"></script>
+  </head>
+  <body>
+    <div class="nav-container">
+      <h2 style="padding: 20px; text-align: center">服务器控制</h2>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-arrow-left"></i>
+            <span>返回主菜单</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="card">
+        <h1 class="card-title">内存使用情况</h1>
+        <div class="chart-container">
+          <canvas id="memory-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 初始化内存图表
+      const memoryCtx = document
+        .getElementById("memory-chart")
+        .getContext("2d");
+      const memoryChart = new Chart(memoryCtx, {
+        type: "line",
+        data: {
+          labels: Array(60).fill(""),
+          datasets: [
+            {
+              label: "内存使用 %",
+              data: Array(60).fill(0),
+              borderColor: "#36b9cc",
+              backgroundColor: "rgba(54, 185, 204, 0.05)",
+              borderWidth: 2,
+              pointRadius: 0,
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: {
+                callback: function (value) {
+                  return value + "%";
+                },
+              },
+            },
+          },
+        },
+      });
+
+      // 模拟数据更新 - 实际应用中应替换为真实数据
+      setInterval(() => {
+        const newData = Math.random() * 100;
+        memoryChart.data.datasets[0].data.shift();
+        memoryChart.data.datasets[0].data.push(newData);
+        memoryChart.update();
+      }, 1000);
+    </script>
+  </body>
+</html>

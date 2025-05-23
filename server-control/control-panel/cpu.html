@@ -1,0 +1,86 @@
+<!--
+ * @Date: 2025-05-22 17:04:38
+ * @LastEditors: CZH
+ * @LastEditTime: 2025-05-22 17:05:09
+ * @FilePath: /指令控制电脑/server-control/control-panel/cpu.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPU监控 - 服务器控制面板</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="lib/chart.js"></script>
+  </head>
+  <body>
+    <div class="nav-container">
+      <h2 style="padding: 20px; text-align: center">服务器控制</h2>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-arrow-left"></i>
+            <span>返回主菜单</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="card">
+        <h1 class="card-title">CPU 使用率</h1>
+        <div class="chart-container">
+          <canvas id="cpu-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 初始化CPU图表
+      const cpuCtx = document.getElementById("cpu-chart").getContext("2d");
+      const cpuChart = new Chart(cpuCtx, {
+        type: "line",
+        data: {
+          labels: Array(60).fill(""),
+          datasets: [
+            {
+              label: "CPU使用率 %",
+              data: Array(60).fill(0),
+              borderColor: "#4e73df",
+              backgroundColor: "rgba(78, 115, 223, 0.05)",
+              borderWidth: 2,
+              pointRadius: 0,
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: {
+                callback: function (value) {
+                  return value + "%";
+                },
+              },
+            },
+          },
+        },
+      });
+
+      // 模拟数据更新 - 实际应用中应替换为真实数据
+      setInterval(() => {
+        const newData = Math.random() * 100;
+        cpuChart.data.datasets[0].data.shift();
+        cpuChart.data.datasets[0].data.push(newData);
+        cpuChart.update();
+      }, 1000);
+    </script>
+  </body>
+</html>

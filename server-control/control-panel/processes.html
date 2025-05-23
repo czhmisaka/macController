@@ -1,0 +1,133 @@
+<!--
+ * @Date: 2025-05-22 17:07:39
+ * @LastEditors: CZH
+ * @LastEditTime: 2025-05-22 17:24:21
+ * @FilePath: /指令控制电脑/server-control/control-panel/processes.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>进程管理 - 服务器控制面板</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="nav-container">
+      <h2 style="padding: 20px; text-align: center">服务器控制</h2>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-arrow-left"></i>
+            <span>返回主菜单</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="card">
+        <h1 class="card-title">进程管理</h1>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; border-collapse: collapse">
+            <thead>
+              <tr style="background-color: #f8f9fa">
+                <th
+                  style="
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #dee2e6;
+                  "
+                >
+                  PID
+                </th>
+                <th
+                  style="
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #dee2e6;
+                  "
+                >
+                  进程名
+                </th>
+                <th
+                  style="
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #dee2e6;
+                  "
+                >
+                  CPU (%)
+                </th>
+                <th
+                  style="
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #dee2e6;
+                  "
+                >
+                  内存 (%)
+                </th>
+              </tr>
+            </thead>
+            <tbody id="process-body">
+              <!-- 进程数据将通过JavaScript动态加载 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 模拟进程数据
+      const processes = [
+        { pid: 1234, name: "node", cpu: 12.5, memory: 24.3 },
+        { pid: 5678, name: "chrome", cpu: 8.2, memory: 45.1 },
+        { pid: 9012, name: "python", cpu: 5.7, memory: 12.8 },
+        { pid: 3456, name: "java", cpu: 3.1, memory: 32.6 },
+        { pid: 7890, name: "bash", cpu: 0.5, memory: 1.2 },
+      ];
+
+      // 渲染进程表格
+      function renderProcessTable() {
+        const tbody = document.getElementById("process-body");
+        tbody.innerHTML = "";
+
+        processes.forEach((proc) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${
+              proc.pid
+            }</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${
+              proc.name
+            }</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${proc.cpu.toFixed(
+              1
+            )}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${proc.memory.toFixed(
+              1
+            )}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+
+      // 初始渲染
+      renderProcessTable();
+
+      // 模拟数据更新 - 实际应用中应替换为真实数据
+      setInterval(() => {
+        processes.forEach((proc) => {
+          proc.cpu = Math.max(0, proc.cpu + (Math.random() - 0.5) * 2);
+          proc.memory = Math.max(0, proc.memory + (Math.random() - 0.5) * 2);
+        });
+        renderProcessTable();
+      }, 2000);
+    </script>
+  </body>
+</html>
