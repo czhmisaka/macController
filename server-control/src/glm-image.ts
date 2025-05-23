@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:49:34
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-09 17:56:56
+ * @LastEditTime: 2025-05-23 17:04:13
  * @FilePath: /指令控制电脑/server-control/src/glm-image.ts
  */
 import axios from 'axios';
@@ -12,7 +12,19 @@ import sharp from 'sharp';
 
 dotenv.config();
 
-export async function analyzeImage(imagePath: string, prompt: string = '请用准确的语句完整的描述出当前屏幕内的内容') {
+export async function analyzeImage(
+    imagePath: string,
+    options: {
+        prompt?: string;
+        model?: string;
+        detailLevel?: 'low' | 'high';
+        timeout?: number;
+    } = {}
+): Promise<{
+    content: string;
+    fullResponse: any;
+}> {
+    const prompt = options.prompt || '请用准确的语句完整的描述出当前屏幕内的内容';
     try {
         // 检查图片文件是否存在
         if (!fs.existsSync(imagePath)) {

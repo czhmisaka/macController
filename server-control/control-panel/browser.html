@@ -131,6 +131,20 @@
             >
               屏幕截图
             </button>
+            <button
+              id="analyze-btn"
+              class="cyber-button"
+              style="
+                padding: 10px 15px;
+                background-color: #9b59b6;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              <i class="fas fa-chart-bar"></i> 分析浏览器
+            </button>
           </div>
 
           <div
@@ -159,6 +173,17 @@
                 border-radius: 4px;
               "
             />
+          </div>
+
+          <div
+            id="analysis-results"
+            class="card"
+            style="display: none; margin-top: 20px"
+          >
+            <h2 class="card-title">
+              <i class="fas fa-chart-pie"></i> 分析结果
+            </h2>
+            <div id="analysis-content" style="padding: 15px"></div>
           </div>
         </div>
       </div>

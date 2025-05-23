@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-22 15:53:32
+ * @LastEditTime: 2025-05-23 15:41:57
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -845,6 +845,87 @@ app.get('/browser/screenshot', async (req, res) => {
         console.error('截图失败:', error);
         res.status(500).json({
             error: 'Failed to capture screenshot',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /browser/analyze:
+ *   get:
+ *     summary: 分析浏览器页面
+ *     description: 分析当前浏览器页面的内容和性能
+ *     responses:
+ *       200:
+ *         description: 分析成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 url:
+ *                   type: string
+ *                   example: "https://example.com"
+ *                 title:
+ *                   type: string
+ *                   example: "Example Domain"
+ *                 elementsCount:
+ *                   type: number
+ *                   example: 42
+ *                 loadTime:
+ *                   type: number
+ *                   example: 1200
+ *                 memoryUsage:
+ *                   type: number
+ *                   example: 256
+ *                 cpuUsage:
+ *                   type: number
+ *                   example: 15
+ *                 isSecure:
+ *                   type: boolean
+ *                   example: true
+ *                 cookiesCount:
+ *                   type: number
+ *                   example: 3
+ *                 localStorageItems:
+ *                   type: number
+ *                   example: 5
+ *                 imagesCount:
+ *                   type: number
+ *                   example: 10
+ *                 scriptsCount:
+ *                   type: number
+ *                   example: 8
+ *                 stylesheetsCount:
+ *                   type: number
+ *                   example: 4
+ */
+app.get('/browser/analyze', async (req, res) => {
+    try {
+        const result = await browserController.analyzeScreenshot();
+        res.json({
+            success: true,
+            url: result.url || '未知',
+            title: result.title || '未知',
+            elementsCount: result.elementsCount || 0,
+            loadTime: result.loadTime || 0,
+            memoryUsage: result.memoryUsage || 0,
+            cpuUsage: result.cpuUsage || 0,
+            isSecure: result.isSecure || false,
+            cookiesCount: result.cookiesCount || 0,
+            localStorageItems: result.localStorageItems || 0,
+            imagesCount: result.imagesCount || 0,
+            scriptsCount: result.scriptsCount || 0,
+            stylesheetsCount: result.stylesheetsCount || 0
+        });
+    } catch (error) {
+        console.error('浏览器分析失败:', error);
+        res.status(500).json({
+            error: 'Failed to analyze browser',
             details: error instanceof Error ? error.message : String(error)
         });
     }

@@ -31,24 +31,23 @@ body {
 
 .nav-container {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 240px;
-    height: 100vh;
-    background-color: white;
-    box-shadow: var(--elevation-1);
+    left: 20px;
+    top: 20px;
+    width: 200px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 16px 0;
     z-index: 100;
 }
 
 .nav-header {
-    padding: 16px 24px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 8px;
+    padding: 12px 16px;
+    margin-bottom: 4px;
 }
 
 .nav-header h2 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--primary-dark);
     margin: 0;
@@ -56,32 +55,39 @@ body {
 
 .nav-menu {
     list-style: none;
+    padding: 0 8px;
 }
 
 .nav-item {
-    padding: 12px 24px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-left: 4px solid transparent;
+    padding: 10px 12px;
+    margin: 4px 8px;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    background: white;
 }
 
 .nav-item:hover {
-    background-color: rgba(25, 118, 210, 0.08);
-    border-left-color: var(--primary-color);
+    background: rgba(15, 240, 252, 0.1);
+    box-shadow: 0 0 0 2px var(--neon-blue);
 }
 
 .nav-item.active {
-    background-color: rgba(25, 118, 210, 0.12);
-    border-left-color: var(--primary-color);
+    background: rgba(15, 240, 252, 0.15);
 }
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--text-color);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 4px;
     font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.5px;
+}
+
+.nav-link .en {
+    font-size: 12px;
+    color: var(--text-dim);
 }
 
 .nav-link .material-icons {
@@ -95,7 +101,7 @@ body {
 }
 
 .main-content {
-    margin-left: 240px;
+    margin-left: 240px; /* 保持原样，因为悬浮菜单不会占用空间 */
     padding: 32px;
     min-height: 100vh;
     background-color: var(--background);
@@ -130,6 +136,40 @@ body {
 
 .card:hover {
     box-shadow: var(--elevation-2);
+}
+
+.analysis-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid rgba(15, 240, 252, 0.2);
+    transition: all 0.3s ease;
+}
+
+.analysis-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(15, 240, 252, 0.5);
+    transform: translateY(-2px);
+}
+
+.analysis-card h3 {
+    color: #0ff0fc;
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.analysis-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: rgba(224, 224, 224, 0.8);
+}
+
+.analysis-card strong {
+    color: white;
+    font-weight: 500;
 }
 
 .card-title {

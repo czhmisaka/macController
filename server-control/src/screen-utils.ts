@@ -182,14 +182,14 @@ export async function captureScreenshotAsBase64(
 }
 
 // 多模态分析相关类型
-interface ImageAnalysisOptions {
+export interface ImageAnalysisOptions {
     model?: string;
     prompt?: string;
     detailLevel?: 'low' | 'high';
     timeout?: number;
 }
 
-interface ImageAnalysisResult {
+export interface ImageAnalysisResult {
     content: string;
     fullResponse: any;
     elapsed: number;
