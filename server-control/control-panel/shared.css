@@ -1,31 +1,57 @@
 :root {
-    --primary-color: #e6f7ff;
-    --secondary-color: #f5f5f5;
-    --text-color: #333333;
+    --primary-color: #1976d2;
+    --primary-light: #63a4ff;
+    --primary-dark: #004ba0;
+    --secondary-color: #ff9800;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --background: #fafafa;
     --border-color: #e0e0e0;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+    --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Roboto", sans-serif;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-    background-color: white;
-    color: var(--text-color);
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
 .nav-container {
     position: fixed;
     left: 0;
     top: 0;
-    width: 220px;
+    width: 240px;
     height: 100vh;
     background-color: white;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
+    box-shadow: var(--elevation-1);
+    padding: 16px 0;
+    z-index: 100;
+}
+
+.nav-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 8px;
+}
+
+.nav-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin: 0;
 }
 
 .nav-menu {
@@ -33,44 +59,165 @@ body {
 }
 
 .nav-item {
-    padding: 12px 20px;
-    transition: background-color 0.3s;
+    padding: 12px 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid transparent;
 }
 
 .nav-item:hover {
-    background-color: var(--secondary-color);
+    background-color: rgba(25, 118, 210, 0.08);
+    border-left-color: var(--primary-color);
+}
+
+.nav-item.active {
+    background-color: rgba(25, 118, 210, 0.12);
+    border-left-color: var(--primary-color);
 }
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-.nav-link i {
-    margin-right: 10px;
-    font-size: 18px;
+.nav-link .material-icons {
+    margin-right: 16px;
+    font-size: 20px;
+    color: var(--text-secondary);
+}
+
+.nav-link:hover .material-icons {
+    color: var(--primary-color);
 }
 
 .main-content {
-    margin-left: 220px;
-    padding: 30px;
+    margin-left: 240px;
+    padding: 32px;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary-dark);
+}
+
+.page-actions {
+    display: flex;
+    gap: 16px;
 }
 
 .card {
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: var(--elevation-1);
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--elevation-2);
 }
 
 .card-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--primary-dark);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.card-title .material-icons {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    outline: none;
+}
+
+.btn .material-icons {
+    margin-right: 8px;
     font-size: 18px;
-    margin-bottom: 15px;
-    color: #444;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--elevation-1);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    box-shadow: var(--elevation-2);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: var(--elevation-1);
+}
+
+.btn-secondary:hover {
+    background-color: #e68a00;
+    box-shadow: var(--elevation-2);
+}
+
+.btn-outlined {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-outlined:hover {
+    background-color: rgba(25, 118, 210, 0.08);
+}
+
+.btn-text {
+    background-color: transparent;
+    color: var(--primary-color);
+    box-shadow: none;
+}
+
+.btn-text:hover {
+    background-color: rgba(25, 118, 210, 0.08);
+}
+
+.btn-large {
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
 }
 
 .chart-container {
@@ -84,10 +231,48 @@ body {
     .nav-container {
         width: 100%;
         height: auto;
-        position: relative;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        padding: 8px 0;
+    }
+
+    .nav-menu {
+        display: flex;
+        overflow-x: auto;
+        padding: 0 8px;
+    }
+
+    .nav-item {
+        padding: 8px 16px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+        border-left: none;
+        border-bottom-color: var(--primary-color);
     }
 
     .main-content {
         margin-left: 0;
+        margin-top: 56px;
+        padding: 16px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .page-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .card {
+        padding: 16px;
     }
 }
