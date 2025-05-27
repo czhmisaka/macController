@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-23 15:41:57
+ * @LastEditTime: 2025-05-28 02:20:52
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -909,6 +909,9 @@ app.get('/browser/analyze', async (req, res) => {
         const result = await browserController.analyzeScreenshot();
         res.json({
             success: true,
+            modelAnswer: {
+                ...result.analysis
+            },
             url: result.url || '未知',
             title: result.title || '未知',
             elementsCount: result.elementsCount || 0,

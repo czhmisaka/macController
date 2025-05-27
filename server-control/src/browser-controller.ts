@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-22 11:01:36
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-28 01:43:28
+ * @LastEditTime: 2025-05-28 02:18:14
  * @FilePath: /指令控制电脑/server-control/src/browser-controller.ts
  */
 import puppeteer, { Browser, Page } from 'puppeteer';
@@ -53,7 +53,7 @@ export class BrowserController {
     }
 
     async analyzeScreenshot(options: ImageAnalysisOptions = {
-        prompt: '请详细分析这个网页截图，包括主要内容、布局结构、关键元素和整体风格',
+        prompt: '请详细分析这个网页截图，告诉我简要内容',
         detailLevel: 'high'
     }): Promise<{
         url: string;
@@ -153,6 +153,7 @@ export class BrowserController {
 
         try {
             const { screenshot } = await this.screenshot(true);
+            console.log(screenshot, '截图')
 
             // 使用Qwen模型进行分析
             const qwenResult = await analyzeImage(screenshot, options);
@@ -162,23 +163,10 @@ export class BrowserController {
                 elapsed: qwenResult.elapsed
             };
 
-            // 尝试解析结构化数据
-            if (result.analysis?.content) {
-                try {
-                    const jsonMatch = result.analysis.content.match(/\{[\s\S]*\}/);
-                    if (jsonMatch) {
-                        const parsed = JSON.parse(jsonMatch[0]);
-                        result.analysis.elements = parsed.elements;
-                        result.analysis.layout = parsed.layout;
-                        result.analysis.sentiment = parsed.sentiment;
-                    }
-                } catch (e) {
-                    console.log('无法解析AI返回的结构化数据:', e);
-                }
-            }
         } catch (error) {
             console.error('图片分析失败:', error);
             // 即使图片分析失败也返回基本浏览器信息
+            return error as any
         }
 
         return result;

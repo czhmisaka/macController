@@ -203,54 +203,54 @@ export async function analyzeImage(
     const {
         prompt = '请详细描述这张图片的内容', // 默认分析提示词
         detailLevel = 'high', // 默认高细节分析
-        timeout = 30000 // 默认30秒超时
+        timeout = 300000 // 默认30秒超时
     } = options;
     const model = 'qwen2.5-vl-7b-instruct'; // 固定使用Qwen多模态模型
 
     const startTime = Date.now();
-
-    try {
-        // 构造Qwen API请求
-        const response = await fetch('http://localhost:1234/v1/chat/completions', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model, // 模型名称
-                messages: [{
-                    role: 'user',
-                    content: [
-                        { type: 'text', text: prompt }, // 文本提示
-                        {
-                            type: 'image_url', // 图片数据
-                            image_url: {
-                                url: `data:image/png;base64,${base64Image}`,
-                                detail: detailLevel // 分析细节级别
-                            }
+    console.log('开始分析图片...', { prompt, detailLevel, timeout });
+    // try {
+    // 构造Qwen API请求
+    const response = await fetch('http://127.0.0.1:1234/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            model, // 模型名称
+            messages: [{
+                role: 'user',
+                content: [
+                    { type: 'text', text: prompt }, // 文本提示
+                    {
+                        type: 'image_url', // 图片数据
+                        image_url: {
+                            url: `data:image/png;base64,${base64Image}`,
+                            detail: detailLevel // 分析细节级别
                         }
-                    ]
-                }],
-                temperature: 0.7, // 生成多样性控制
-                max_tokens: 1000 // 最大输出token数
-            }),
-            signal: AbortSignal.timeout(timeout) // 请求超时控制
-        });
+                    }
+                ]
+            }],
+            temperature: 0.7, // 生成多样性控制
+            max_tokens: 1000 // 最大输出token数
+        }),
+        signal: AbortSignal.timeout(timeout) // 请求超时控制
+    });
 
-        if (!response.ok) {
-            throw new Error(`API请求失败: ${response.status} ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        const elapsed = Date.now() - startTime;
-
-        return {
-            content: data.choices[0]?.message?.content || '',
-            fullResponse: data,
-            elapsed
-        };
-    } catch (error) {
-        console.error('图片分析失败:', error);
-        throw new Error(`图片分析失败: ${error instanceof Error ? error.message : String(error)}`);
+    if (!response.ok) {
+        throw new Error(`API请求失败: ${response.status} ${response.statusText}`);
     }
+
+    const data = await response.json();
+    const elapsed = Date.now() - startTime;
+    console.log('图片分析完成:', data, data.choices[0]?.message?.content);
+    return {
+        content: data.choices[0]?.message?.content || '',
+        fullResponse: data,
+        elapsed
+    };
+    // } catch (error) {
+    //     console.error('图片分析失败:', error);
+    //     throw new Error(`图片分析失败: ${error instanceof Error ? error.message : String(error)}`);
+    // }
 }
 
 // 截图并分析
