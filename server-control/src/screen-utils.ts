@@ -183,7 +183,6 @@ export async function captureScreenshotAsBase64(
 
 // 多模态分析相关类型
 export interface ImageAnalysisOptions {
-    model?: string;
     prompt?: string;
     detailLevel?: 'low' | 'high';
     timeout?: number;
@@ -200,38 +199,40 @@ export async function analyzeImage(
     base64Image: string,
     options: ImageAnalysisOptions = {}
 ): Promise<ImageAnalysisResult> {
+    // Qwen模型固定配置
     const {
-        model = 'qwen2.5-vl-7b-instruct',
-        prompt = '请详细描述这张图片的内容',
-        detailLevel = 'high',
-        timeout = 30000
+        prompt = '请详细描述这张图片的内容', // 默认分析提示词
+        detailLevel = 'high', // 默认高细节分析
+        timeout = 30000 // 默认30秒超时
     } = options;
+    const model = 'qwen2.5-vl-7b-instruct'; // 固定使用Qwen多模态模型
 
     const startTime = Date.now();
 
     try {
+        // 构造Qwen API请求
         const response = await fetch('http://localhost:1234/v1/chat/completions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model,
+                model, // 模型名称
                 messages: [{
                     role: 'user',
                     content: [
-                        { type: 'text', text: prompt },
+                        { type: 'text', text: prompt }, // 文本提示
                         {
-                            type: 'image_url',
+                            type: 'image_url', // 图片数据
                             image_url: {
                                 url: `data:image/png;base64,${base64Image}`,
-                                detail: detailLevel
+                                detail: detailLevel // 分析细节级别
                             }
                         }
                     ]
                 }],
-                temperature: 0.7,
-                max_tokens: 1000
+                temperature: 0.7, // 生成多样性控制
+                max_tokens: 1000 // 最大输出token数
             }),
-            signal: AbortSignal.timeout(timeout)
+            signal: AbortSignal.timeout(timeout) // 请求超时控制
         });
 
         if (!response.ok) {

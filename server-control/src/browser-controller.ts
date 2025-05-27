@@ -1,14 +1,11 @@
 /*
  * @Date: 2025-05-22 11:01:36
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-23 17:04:34
+ * @LastEditTime: 2025-05-28 01:43:28
  * @FilePath: /指令控制电脑/server-control/src/browser-controller.ts
  */
 import puppeteer, { Browser, Page } from 'puppeteer';
-import * as path from 'path';
-import * as fs from 'fs';
 import { ImageAnalysisOptions, analyzeImage } from './screen-utils';
-import { analyzeImage as analyzeImageGLM } from './glm-image';
 
 export class BrowserController {
     private browser: Browser | null = null;
@@ -17,9 +14,14 @@ export class BrowserController {
     async launch() {
         this.browser = await puppeteer.launch({
             headless: false,
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=1920,1080']
         });
         this.page = await this.browser.newPage();
+        await this.page.setViewport({
+            width: 1920,
+            height: 1080,
+            deviceScaleFactor: 1
+        });
         return { success: true };
     }
 
@@ -51,7 +53,6 @@ export class BrowserController {
     }
 
     async analyzeScreenshot(options: ImageAnalysisOptions = {
-        model: 'qwen',
         prompt: '请详细分析这个网页截图，包括主要内容、布局结构、关键元素和整体风格',
         detailLevel: 'high'
     }): Promise<{
@@ -153,25 +154,13 @@ export class BrowserController {
         try {
             const { screenshot } = await this.screenshot(true);
 
-            // 根据选项选择不同的分析模型
-            if (options.model === 'glm') {
-                const tempPath = path.join(process.cwd(), 'temp', 'screenshot.png');
-                fs.writeFileSync(tempPath, Buffer.from(screenshot, 'base64'));
-                const glmResult = await analyzeImageGLM(tempPath, options);
-                result.analysis = {
-                    content: glmResult.content,
-                    fullResponse: glmResult,
-                    elapsed: 0 // GLM API不返回处理时间
-                };
-            } else {
-                // 默认使用Qwen模型
-                const qwenResult = await analyzeImage(screenshot, options);
-                result.analysis = {
-                    content: qwenResult.content,
-                    fullResponse: qwenResult.fullResponse,
-                    elapsed: qwenResult.elapsed
-                };
-            }
+            // 使用Qwen模型进行分析
+            const qwenResult = await analyzeImage(screenshot, options);
+            result.analysis = {
+                content: qwenResult.content,
+                fullResponse: qwenResult.fullResponse,
+                elapsed: qwenResult.elapsed
+            };
 
             // 尝试解析结构化数据
             if (result.analysis?.content) {
