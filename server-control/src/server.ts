@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-28 02:20:52
+ * @LastEditTime: 2025-05-28 16:01:40
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -66,7 +66,7 @@ const specs = swaggerJsdoc(options);
 dotenv.config();
 
 const app = express();
-const port = process.env.SERVER_PORT || 15800;
+const port = Number(process.env.SERVER_PORT) || 15800;
 
 // 添加Swagger UI路由
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
@@ -992,8 +992,8 @@ const fullPanelPath = path.resolve(panelPath);
 console.log('完整控制面板路径:', fullPanelPath);
 console.log('目录内容:', fs.readdirSync(fullPanelPath));
 
-const server = app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+const server = app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running on http://0.0.0.0:${port}`);
 });
 
 // 创建WebSocket服务器

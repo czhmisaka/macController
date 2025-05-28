@@ -320,3 +320,23 @@ button:hover {
     box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     transform: translateY(-2px);
 }
+
+/* 分析结果文本样式 */
+.analysis-text-content {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    padding: 15px;
+    background: rgba(13, 2, 33, 0.7);
+    border-radius: 4px;
+    border-left: 4px solid var(--neon-blue);
+    color: var(--text-color);
+    font-family: "Courier New", monospace;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(15, 240, 252, 0.1);
+}
+
+.analysis-text-content br {
+    margin-bottom: 10px;
+    display: block;
+    content: "";
+}

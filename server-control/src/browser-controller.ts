@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-22 11:01:36
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-28 02:18:14
+ * @LastEditTime: 2025-05-28 11:07:44
  * @FilePath: /指令控制电脑/server-control/src/browser-controller.ts
  */
 import puppeteer, { Browser, Page } from 'puppeteer';
@@ -40,9 +40,13 @@ export class BrowserController {
         return { success: true, url };
     }
 
-    async screenshot(fullPage = false) {
+    async screenshot(fullPage = false, options: Parameters<Page['screenshot']>[0] = {}) {
         if (!this.page) throw new Error('Browser not launched');
-        const screenshotBuffer = await this.page.screenshot({ fullPage, encoding: 'base64' });
+        const screenshotBuffer = await this.page.screenshot({
+            ...options,
+            fullPage,
+            encoding: 'base64'
+        });
         return { success: true, screenshot: screenshotBuffer };
     }
 
@@ -53,8 +57,8 @@ export class BrowserController {
     }
 
     async analyzeScreenshot(options: ImageAnalysisOptions = {
-        prompt: '请详细分析这个网页截图，告诉我简要内容',
-        detailLevel: 'high'
+        prompt: '请详细分析这个网页截图，用一句话告诉我简要内容',
+        detailLevel: 'low'
     }): Promise<{
         url: string;
         title: string;
@@ -152,8 +156,12 @@ export class BrowserController {
         };
 
         try {
-            const { screenshot } = await this.screenshot(true);
-            console.log(screenshot, '截图')
+            console.log('开始截图')
+            const { screenshot } = await this.screenshot(true, {
+
+            });
+
+            console.log(screenshot, '压缩后的截图');
 
             // 使用Qwen模型进行分析
             const qwenResult = await analyzeImage(screenshot, options);

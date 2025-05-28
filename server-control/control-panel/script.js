@@ -264,41 +264,9 @@ document.getElementById('analyze-btn').addEventListener('click', async () => {
             const container = document.getElementById('analysis-results');
             const content = document.getElementById('analysis-content');
 
-            // 格式化分析结果
-            let html = '<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">';
-
-            // 页面信息
-            html += `<div class="analysis-card">
-                <h3><i class="fas fa-globe"></i> 页面信息</h3>
-                <p><strong>URL:</strong> ${result.url || '未知'}</p>
-                <p><strong>标题:</strong> ${result.title || '未知'}</p>
-                <p><strong>元素数量:</strong> ${result.elementsCount || 0}</p>
-            </div>`;
-
-            // 性能指标
-            html += `<div class="analysis-card">
-                <h3><i class="fas fa-tachometer-alt"></i> 性能指标</h3>
-                <p><strong>加载时间:</strong> ${result.loadTime || 0}ms</p>
-                <p><strong>内存使用:</strong> ${result.memoryUsage || 0}MB</p>
-                <p><strong>CPU占用:</strong> ${result.cpuUsage || 0}%</p>
-            </div>`;
-
-            // 安全信息
-            html += `<div class="analysis-card">
-                <h3><i class="fas fa-shield-alt"></i> 安全信息</h3>
-                <p><strong>HTTPS:</strong> ${result.isSecure ? '是' : '否'}</p>
-                <p><strong>Cookies:</strong> ${result.cookiesCount || 0}</p>
-                <p><strong>本地存储:</strong> ${result.localStorageItems || 0}项</p>
-            </div>`;
-
-            // 资源信息
-            html += `<div class="analysis-card">
-                <h3><i class="fas fa-file-alt"></i> 资源信息</h3>
-                <p><strong>图片:</strong> ${result.imagesCount || 0}</p>
-                <p><strong>脚本:</strong> ${result.scriptsCount || 0}</p>
-                <p><strong>样式表:</strong> ${result.stylesheetsCount || 0}</p>
-            </div>`;
-
+            // 显示模型分析结果
+            let html = '<div class="analysis-text-content">';
+            html += result.modelAnswer.content.replace(/\n/g, '<br>');
             html += '</div>';
             content.innerHTML = html;
             container.style.display = 'block';
