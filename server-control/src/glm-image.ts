@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:49:34
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-28 15:06:58
+ * @LastEditTime: 2025-05-28 16:47:50
  * @FilePath: /指令控制电脑/server-control/src/glm-image.ts
  */
 import axios from 'axios';
@@ -113,5 +113,62 @@ export async function analyzeImage(
     } catch (error) {
         console.error('图片处理失败:', error instanceof Error ? error.message : error);
         throw new Error(`图片处理失败: ${error instanceof Error ? error.message : error}`);
+    }
+}
+
+
+
+// 通过分析网页源代码 sourceCode 来回答用户需求 userIntent 的函数
+// 调用模型为 glm4-flash
+export async function analyzeSourceCode(
+    sourceCode: string,
+    userIntent: string,
+    options: {
+        model?: string;
+        timeout?: number;
+    } = { timeout: 3000000 }
+): Promise<{
+    content: string;
+    fullResponse: any;
+}> {
+    try {
+        const response = await axios.post('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
+            model: options.model || "glm-4-flash-250414",
+            messages: [
+                {
+                    role: "system",
+                    content: `你是一个专业的前端开发，善于理解用户的需求，并观察网页源代码给出对应的js代码。
+                        网页源代码:【\n${sourceCode}\n\n】
+                        
+                        要求：
+                        1. 只需要输出js代码即可，不需要输出思考过程。
+                        2. 确保输出的js代码可以在浏览器环境里执行。
+                    `
+                },
+                {
+                    role: "user",
+                    content: [
+                        {
+                            type: "text",
+                            text: `${userIntent}`
+                        }
+                    ]
+                }
+            ]
+        }, {
+            headers: {
+                'Authorization': `Bearer ${process.env.GLM_API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            timeout: options.timeout
+        });
+
+        return {
+            content: response.data.choices[0].message.content,
+            fullResponse: response.data
+        };
+    } catch (error) {
+        console.error('源代码分析失败:', error instanceof Error ? error.message : error);
+        throw new Error(`源代码分析失败: ${error instanceof Error ? error.message : error}`);
     }
 }
