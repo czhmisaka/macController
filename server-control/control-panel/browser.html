@@ -145,6 +145,56 @@
             >
               <i class="fas fa-chart-bar"></i> 分析浏览器
             </button>
+            <button
+              id="analyze-source-btn"
+              class="cyber-button"
+              style="
+                padding: 10px 15px;
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              <i class="fas fa-code"></i> 分析源代码
+            </button>
+          </div>
+
+          <div
+            id="source-analysis-container"
+            style="display: block; margin-top: 20px"
+          >
+            <div style="margin-bottom: 10px">
+              <textarea
+                id="analysis-prompt"
+                placeholder="输入分析提示 (例如: 分析页面结构)"
+                style="
+                  width: 100%;
+                  padding: 10px;
+                  border: 1px solid #ddd;
+                  border-radius: 4px;
+                  min-height: 80px;
+                "
+              ></textarea>
+            </div>
+            <div class="card">
+              <h3>源代码分析结果</h3>
+              <div id="source-analysis-result" style="padding: 10px"></div>
+            </div>
+            <div class="card" style="margin-top: 10px">
+              <h3>页面源代码</h3>
+              <pre
+                id="page-source-code"
+                style="
+                  max-height: 300px;
+                  overflow: auto;
+                  background: #f5f5f5;
+                  padding: 10px;
+                  border-radius: 4px;
+                "
+              ></pre>
+            </div>
           </div>
 
           <div

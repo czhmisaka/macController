@@ -1,11 +1,12 @@
 /*
  * @Date: 2025-05-22 11:01:36
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-28 11:07:44
+ * @LastEditTime: 2025-05-28 17:33:07
  * @FilePath: /指令控制电脑/server-control/src/browser-controller.ts
  */
 import puppeteer, { Browser, Page } from 'puppeteer';
 import { ImageAnalysisOptions, analyzeImage } from './screen-utils';
+import { analyzeSourceCode } from './glm-image';
 
 export class BrowserController {
     private browser: Browser | null = null;
@@ -54,6 +55,31 @@ export class BrowserController {
         if (!this.page) throw new Error('Browser not launched');
         const result = await this.page.evaluate(script);
         return { success: true, result };
+    }
+
+    async getPageSource(): Promise<string> {
+        if (!this.page) throw new Error('Browser not launched');
+        let code = await this.page.content()
+        // 去除所有的script 标签
+        code = code.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+        // 去除所有的img 标签
+        code = code.replace(/<img\b[^<]*(?:(?!<\/img>)<[^<]*)*<\/img>/gi, '');
+        // 去除所有元素内的 style
+        code = code.replace(/style="[^"]*"/gi, '');
+        // 提取页面中 body 标签内的内容
+        code = code.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || '';
+        // 保留所有标签，但去除所有属性，只保留 标签名、id、class、标签内的文本。
+        code = code.replace(/<[^>]+>/g, (match: string) => {
+            const tag = match.match(/<(\w+)/)?.[1];
+            if (!tag) return '';
+            const attributes = match.match(/(\w+)=['"]([^'"]*)['"]/g) || [];
+            const id = attributes.find(attr => attr.startsWith('id'))?.split('=')[1] || '';
+            const className = attributes.find(attr => attr.startsWith('class'))?.split('=')[1] || '';
+            const text = match.match(/>([\s\S]*?)</)?.[1] || '';
+            return `<${tag} id="${id}" class="${className}">${text}</${tag}>`
+        })
+
+        return code;
     }
 
     async analyzeScreenshot(options: ImageAnalysisOptions = {

@@ -1,0 +1,1548 @@
+你是一个专业的前端开发，善于理解用户的需求，并观察网页源代码给出能完成用户需求的的js代码。
+网页源代码:【
+<div id=""MathJax_Message"" class=""></div>
+<div id=""toolbarBox"" class=""></div><div id=""csdn-toolbar"" class=""></div>
+<div id="" class=""toolbar-inside exp3""></div>
+  <div id="" class=""toolbar-container""></div>
+<div id="" class=""toolbar-container-left""></div>
+  <div id="" class=""toolbar-logo toolbar-subMenu-box csdn-toolbar-fl""></div><a id="" class=""></a><img id="" class=""></img>
+  <ul id="" class=""toolbar-menus csdn-toolbar-fl""></ul><li id="" class=""active ""></li>
+<a id="" class=""></a>
+  博客
+  <li id="" class=""""></li>
+<a id="" class=""></a>
+  下载
+  <li id="" class=""""></li>
+<a id="" class=""></a>
+  学习
+  <li id="" class=""""></li>
+<a id="" class=""></a>
+  社区
+  <li id="" class=""""></li>
+<a id="" class=""></a>
+  <img id="" class=""></img>GitCode
+  <li id="" class=""""></li>
+<a id="" class=""></a>
+  InsCodeAI
+  <li id="" class=""""></li>
+<a id="" class=""></a>
+  会议
+
+<div id="" class=""toolbar-container-middle""></div>
+<div id="" class=""toolbar-search  onlySearch exp1""></div><div id="" class=""toolbar-search-container""></div>
+<span id="" class=""icon-fire ""></span>
+<input id=""toolbar-search-input"" class=""""></input><div id="" class=""gradient""></div>
+<button id=""toolbar-search-button"" class=""></button><i id="" class=""></i><span id="" class=""></span>搜索
+<p id=""toolbar-c-box-button"" class=""c-box""></p><span id="" class=""></span>C 知道
+<input id="" class=""></input>
+  
+<div id="" class=""toolbar-container-right""></div>
+  <div id="" class=""toolbar-btns onlyUser""></div><div id="" class=""toolbar-btn toolbar-btn-login toolbar-btn-login-new csdn-toolbar-fl ""></div>
+   <a id="" class=""toolbar-btn-loginfun""></a>登录
+  <div id=""csdn-toolbar-profile-nologin"" class=""csdn-toolbar-plugin""></div>
+<div id="" class=""csdn-toolbar-plugin-triangle""></div>
+<div id="" class=""csdn-toolbar-profile-title""></div>登录后您可以：
+<ul id="" class=""csdn-profile-top""></ul>
+<li id="" class=""csdn-profile-a""></li><i id="" class=""csdn-profile-icon""></i>免费复制代码<li id="" class=""csdn-profile-a""></li><i id="" class=""csdn-profile-icon""></i>关注/点赞/评论/收藏<li id="" class=""csdn-profile-a""></li><i id="" class=""csdn-profile-icon""></i>下载海量资源<li id="" class=""csdn-profile-a""></li><i id="" class=""csdn-profile-icon""></i>写文章/发动态/加入社区
+
+<a id="" class=""csdn-toolbar-loginbtn""></a>立即登录
+  
+  <div id="" class=""toolbar-btn toolbar-btn-vip csdn-toolbar-fl""></div>
+<a id="" class=""></a>
+  会员中心 <img id="" class=""></img>
+
+  
+  <div id="" class=""toolbar-btn toolbar-btn-msg csdn-toolbar-fl""></div>
+<div id="" class=""toolbar-subMenu-box""></div>
+  <a id=""toolbar-remind"" class=""></a><span id="" class=""pos-rel""></span>消息<i id="" class=""toolbar-msg-count""></i>
+
+  
+  <div id="" class=""toolbar-btn toolbar-btn-collect csdn-toolbar-fl""></div>
+<a id="" class=""></a>历史
+  
+  <div id="" class=""toolbar-btn toolbar-btn-mp csdn-toolbar-fl""></div>
+<a id="" class=""></a>
+  创作中心
+
+  
+<div id="" class=""csdn-toolbar-creative-mp""></div>
+  <a id="" class=""></a><img id="" class=""csdn-toolbar-creative-mp-bg""></img> 
+  <img id="" class=""csdn-toolbar-creative-mp-close""></img>
+
+  
+  <div id="" class=""toolbar-btn toolbar-btn-write toolbar-btn-write-new csdn-toolbar-fl ""></div><a id="" class=""></a>创作
+
+
+  
+
+  
+
+
+
+
+<link id="" class=""></link>
+<link id="" class=""></link>
+<link id="" class=""></link>
+
+
+<div id="" class=""main_father clearfix d-flex justify-content-center""></div>
+  <div id=""mainBox"" class=""container clearfix""></div>
+  
+  <main id="" class=""></main>
+
+<div id="" class=""blog-content-box""></div>
+<div id="" class=""article-header-box""></div>
+<div id="" class=""article-header""></div>
+<div id="" class=""article-title-box""></div>
+<h1 id=""articleContentId"" class=""title-article""></h1>Playwright + MCP：用AI对话重新定义浏览器自动化，效率提升300%！
+
+<div id="" class=""article-info-box""></div>
+<div id="" class=""up-time""></div>最新推荐文章于&nbsp;2025-05-24 21:56:17&nbsp;发布
+<div id="" class=""article-bar-top""></div>
+<img id="" class=""article-type-img""></img>
+<div id="" class=""bar-content""></div>
+  <a id="" class=""follow-nickName ""></a>测试工程师成长之路
+<img id="" class=""article-time-img article-heard-img""></img>
+  <span id="" class=""time blog-postTime""></span>于 2025-03-23 11:14:32 发布
+   <div id="" class=""read-count-box""></div>
+  <img id="" class=""article-read-img article-heard-img""></img>
+  <span id="" class=""read-count""></span>阅读量6.9k
+  <a id=""blog_detail_zk_collection"" class=""un-collection""></a>
+  <img id="" class=""article-collect-img article-heard-img un-collect-status isdefault""></img>
+  <img id="" class=""article-collect-img article-heard-img collect-status isactive""></img>
+  <span id="" class=""name""></span>收藏
+  <span id="" class=""get-collection""></span>
+  26
+  
+  
+  <div id="" class=""read-count-box is-like""></div>
+<img id=""is-like-imgactive-new"" class=""article-read-img article-heard-img""></img>
+<img id=""is-like-img-new"" class=""article-read-img article-heard-img""></img>
+<span id=""blog-digg-num"" class=""read-count""></span>点赞数
+9
+
+  
+
+  
+
+<div id="" class=""blog-tags-box""></div>
+<div id="" class=""tags-box artic-tag-box""></div>
+<span id="" class=""label""></span>分类专栏：
+<a id="" class=""tag-link""></a>测试工程师成长之路
+<span id="" class=""label""></span>文章标签：
+<a id="" class=""tag-link""></a>人工智能
+<a id="" class=""tag-link""></a>Playwright
+<a id="" class=""tag-link""></a>自动化测试
+
+
+<div id="" class=""slide-content-box""></div>
+<div id="" class=""article-copyright""></div>
+<div id="" class=""creativecommons""></div>
+版权声明：本文为博主原创文章，遵循<a id="" class=""></a> CC 4.0 BY 版权协议，转载请附上原文出处链接和本声明。
+
+<div id="" class=""article-source-link""></div>
+本文链接：<a id="" class=""></a>https://blog.csdn.net/u013851294/article/details/146453449
+
+
+
+
+<div id="" class=""operating""></div>
+<a id="" class=""href-article-edit slide-toggle""></a>版权
+
+
+
+
+
+
+<div id=""blogColumnPayAdvert"" class=""""></div>
+<div id="" class=""column-group""></div>
+<div id="" class=""column-group-item column-group0 column-group-item-one""></div>
+<div id="" class=""item-l""></div>
+<a id="" class=""item-target""></a>
+<img id="" class=""item-target""></img>
+<span id="" class=""title item-target""></span>
+<span id="" class=""></span>
+<span id="" class=""tit""></span>测试工程师成长之路
+<span id="" class=""dec""></span>专栏收录该内容
+
+
+
+
+<div id="" class=""item-m""></div>
+<span id="" class=""></span>43 篇文章
+
+<div id="" class=""item-r""></div>
+<a id=""9947243"" class=""item-target article-column-bt articleColumnFreeBt""></a>订阅专栏
+
+
+
+
+<article id="" class=""baidu_pl""></article>
+<div id=""article_content"" class=""article_content clearfix""></div>
+<link id="" class=""></link>
+<link id="" class=""></link>
+<div id=""content_views"" class=""markdown_views prism-atom-one-light""></div>
+<svg id="" class=""></svg>
+<path id=""raphael-marker-block"" class=""></path>
+
+<h3 id="" class=""></h3><a id="" class=""></a><a id=""MCP_0"" class=""></a>一、引言：自动化测试的“瓶颈”与MCP的革新 
+<p id="" class=""></p>传统自动化测试依赖开发者手动编写脚本，不仅耗时且容易因页面动态变化失效。例如，一个简单的登录流程可能需要开发者手动定位元素、处理等待逻辑，甚至反复调试超时问题。而MCP（<span id="" class=""words-blog hl-git-1""></span>Model Context <a id="" class=""hl hl-1""></a>Protocol）协议的出现，让工具与大语言模型（LLM）的协作成为可能——通过自然语言描述需求，即可自动完成浏览器操作。<br id="" class=""></br> 以<span id="" class=""words-blog hl-git-1""></span>Playwright为例，结合MCP协议后，开发者可以像与“同事”对话一样完成复杂任务： 
+<blockquote id="" class=""></blockquote> 
+ <p id="" class=""></p>用户：“打开百度，搜索‘Playwright’并截图。”<br id="" class=""></br> <span id="" class=""words-blog hl-git-1""></span>LLM：“调用Playwright打开浏览器，输入关键词，触发截图功能。”<br id="" class=""></br> MCP Server：“执行指令并返回结果。”<br id="" class=""></br> 这种模式不仅颠覆了传统脚本编写方式，还开启了“智能自动化”的新篇章。 
+ 
+<hr id="" class=""></hr> 
+<h3 id="" class=""></h3><a id="" class=""></a><a id=""Playwright_8"" class=""></a>二、Playwright：跨浏览器自动化的“瑞士军刀” 
+<p id="" class=""></p>Playwright是微软开源的<a id="" class=""hl hl-1""></a>自动化测试工具，其核心优势在于： 
+<ol id="" class=""></ol><li id="" class=""></li>跨浏览器支持：原生兼容Chromium（Chrome/Edge）、Firefox、WebKit（Safari），无需手动安装驱动。<li id="" class=""></li>高效稳定： 
+  <ul id="" class=""></ul><li id="" class=""></li>自动等待机制：操作前自动等待元素加载，减少硬编码<code id="" class=""></code>sleep。<li id="" class=""></li>智能选择器：支持Shadow DOM穿透和动态元素定位，降低维护成本。 <li id="" class=""></li>多场景覆盖：支持文件上传下载、跨域操作、移动端模拟等复杂需求。<br id="" class=""></br> 例如，通过Playwright模拟移动端访问： 
+<pre id="" class=""set-code-show prettyprint""></pre><code id="" class=""prism language-python has-numbering""></code><span id="" class=""token keyword""></span>with sync_playwright<span id="" class=""token punctuation""></span>(<span id="" class=""token punctuation""></span>) <span id="" class=""token keyword""></span>as p<span id="" class=""token punctuation""></span>:
+browser <span id="" class=""token operator""></span>= p<span id="" class=""token punctuation""></span>.chromium<span id="" class=""token punctuation""></span>.launch<span id="" class=""token punctuation""></span>(<span id="" class=""token punctuation""></span>)
+context <span id="" class=""token operator""></span>= browser<span id="" class=""token punctuation""></span>.new_context<span id="" class=""token punctuation""></span>(device Scale<span id="" class=""token operator""></span>=<span id="" class=""token number""></span>2<span id="" class=""token punctuation""></span>, hasTouch<span id="" class=""token operator""></span>=<span id="" class=""token boolean""></span>True<span id="" class=""token punctuation""></span>)  <span id="" class=""token comment""></span># 模拟iPhone 11
+page <span id="" class=""token operator""></span>= context<span id="" class=""token punctuation""></span>.new_page<span id="" class=""token punctuation""></span>(<span id="" class=""token punctuation""></span>)
+page<span id="" class=""token punctuation""></span>.goto<span id="" class=""token punctuation""></span>(<span id="" class=""token string""></span>"https://example.com"<span id="" class=""token punctuation""></span>)
+<div id="" class=""hljs-button signin active add_def""></div><ul id="" class=""pre-numbering""></ul><li id="" class=""></li>1<li id="" class=""></li>2<li id="" class=""></li>3<li id="" class=""></li>4<li id="" class=""></li>5<button id="" class=""btn-code-notes mdeditor ""></button>AI写代码 
+<p id="" class=""></p>这种灵活性使其成为企业级测试的首选工具。 
+<h3 id="" class=""></h3><a id="" class=""></a><a id=""MCPAI_25"" class=""></a>三、MCP协议：标准化<span id="" class=""words-blog hl-git-1""></span>AI与工具的“对话” 
+<p id="" class=""></p>MCP协议通过定义统一的通信标准，让LLM能够无缝调用外部工具（如浏览器、数据库、本地文件）。其核心价值体现在： 
+<ol id="" class=""></ol><li id="" class=""></li>标准化交互：开发者只需实现一次MCP Server，即可适配所有支持MCP的客户端（如WindSurf、Cline）。<li id="" class=""></li>动态灵活性：支持实时生成指令，例如根据页面状态动态调整操作流程。<li id="" class=""></li>安全性：内置权限控制，防止LLM越权访问敏感数据。<br id="" class=""></br> 以Playwright的MCP Server为例，其工作流程如下：<li id="" class=""></li>指令接收：LLM发送自然语言描述（如“点击登录按钮”）。<li id="" class=""></li>指令解析：将自然语言转化为Playwright的API调用（如<code id="" class=""></code>page.click("#login")）。<li id="" class=""></li>结果返回：将操作结果（截图、日志等）反馈给LLM。 
+<hr id="" class=""></hr> 
+<h3 id="" class=""></h3><a id="" class=""></a><a id=""AI_35"" class=""></a>四、实战：从安装到AI驱动的自动化 
+<h4 id="" class=""></h4><a id="" class=""></a><a id=""1__36"" class=""></a>1. 环境搭建 
+<ul id="" class=""></ul><li id="" class=""></li>安装Playwright：<pre id="" class=""set-code-show prettyprint""></pre><code id="" class=""prism language-bash has-numbering""></code>pip <span id="" class=""token function""></span>install playwright
+playwright <span id="" class=""token function""></span>install  <span id="" class=""token comment""></span># 自动安装浏览器驱动
+<div id="" class=""hljs-button signin active add_def""></div><ul id="" class=""pre-numbering""></ul><li id="" class=""></li>1<li id="" class=""></li>2<button id="" class=""btn-code-notes mdeditor ""></button>AI写代码 <li id="" class=""></li>部署MCP Server：<pre id="" class=""set-code-show prettyprint""></pre><code id="" class=""prism language-bash has-numbering""></code>npx <span id="" class=""token parameter variable""></span>-y @smithery/cli@latest run @executeautomation/playwright-mcp-server <span id="" class=""token parameter variable""></span>--config <span id="" class=""token string""></span>"{}"
+<div id="" class=""hljs-button signin active add_def""></div><ul id="" class=""pre-numbering""></ul><li id="" class=""></li>1<button id="" class=""btn-code-notes mdeditor ""></button>AI写代码 或克隆预配置项目：<pre id="" class=""set-code-show prettyprint""></pre><code id="" class=""prism language-bash has-numbering""></code><span id="" class=""token function""></span>git clone https://github.com/AutoTestClass/playwright-mind
+<span id="" class=""token function""></span>npm <span id="" class=""token function""></span>install <span id="" class=""token parameter variable""></span>-g @executeautomation/playwright-mcp-server
+<div id="" class=""hljs-button signin active add_def""></div><ul id="" class=""pre-numbering""></ul><li id="" class=""></li>1<li id="" class=""></li>2<button id="" class=""btn-code-notes mdeditor ""></button>AI写代码  
+<h4 id="" class=""></h4><a id="" class=""></a><a id=""2_VSCode_Cline_51"" class=""></a>2. 客户端配置（以VSCode <span id="" class=""words-blog hl-git-1""></span>Cline为例） 
+<ol id="" class=""></ol><li id="" class=""></li>安装Cline插件并搜索“Playwright MCP Server”。<li id="" class=""></li>配置启动参数：<pre id="" class=""set-code-show prettyprint""></pre><code id="" class=""prism language-json has-numbering""></code><span id="" class=""token punctuation""></span>{
+  <span id="" class=""token string-property property""></span>"mcpServers"<span id="" class=""token operator""></span>: <span id="" class=""token punctuation""></span>{
+<span id="" class=""token string-property property""></span>"playwright"<span id="" class=""token operator""></span>: <span id="" class=""token punctuation""></span>{
+  <span id="" class=""token string-property property""></span>"command"<span id="" class=""token operator""></span>: <span id="" class=""token string""></span>"npx"<span id="" class=""token punctuation""></span>,
+  <span id="" class=""token string-property property""></span>"args"<span id="" class=""token operator""></span>: <span id="" class=""token punctuation""></span>[<span id="" class=""token string""></span>"@executeautomation/playwright-mcp-server"<span id="" class=""token punctuation""></span>]
+<span id="" class=""token punctuation""></span>}
+  <span id="" class=""token punctuation""></span>}
+<span id="" class=""token punctuation""></span>}
+<div id="" class=""hljs-button signin active add_def""></div><ul id="" class=""pre-numbering""></ul><li id="" class=""></li>1<li id="" class=""></li>2<li id="" class=""></li>3<li id="" class=""></li>4<li id="" class=""></li>5<li id="" class=""></li>6<li id="" class=""></li>7<li id="" class=""></li>8<button id="" class=""btn-code-notes mdeditor ""></button>AI写代码 <li id="" class=""></li>输入自然语言指令： 
+  <blockquote id="" class=""></blockquote> 
+   <p id="" class=""></p>“打开Playwright官网，点击‘Get Started’并截图。” 
+
+<h4 id="" class=""></h4><a id="" class=""></a><a id=""3__66"" class=""></a>3. 高级场景：动态调试与数据抓取 
+<ul id="" class=""></ul><li id="" class=""></li>调试动态页面：LLM可实时读取控制台日志，定位加载失败或脚本错误。<li id="" class=""></li>加密数据抓取：通过Playwright渲染动态页面，绕过JS加密逻辑。<pre id="" class=""set-code-show prettyprint""></pre><code id="" class=""prism language-python has-numbering""></code>page <span id="" class=""token operator""></span>= browser<span id="" class=""token punctuation""></span>.new_page<span id="" class=""token punctuation""></span>(<span id="" class=""token punctuation""></span>)
+page<span id="" class=""token punctuation""></span>.goto<span id="" class=""token punctuation""></span>(<span id="" class=""token string""></span>"https://example.com/encrypted-data"<span id="" class=""token punctuation""></span>)
+data <span id="" class=""token operator""></span>= page<span id="" class=""token punctuation""></span>.locator<span id="" class=""token punctuation""></span>(<span id="" class=""token string""></span>"div秘密内容"<span id="" class=""token punctuation""></span>)<span id="" class=""token punctuation""></span>.inner_text<span id="" class=""token punctuation""></span>(<span id="" class=""token punctuation""></span>)
+<div id="" class=""hljs-button signin active add_def""></div><ul id="" class=""pre-numbering""></ul><li id="" class=""></li>1<li id="" class=""></li>2<li id="" class=""></li>3<button id="" class=""btn-code-notes mdeditor ""></button>AI写代码  
+<hr id="" class=""></hr> 
+<h3 id="" class=""></h3><a id="" class=""></a><a id=""Playwright__MCP_75"" class=""></a>五、对比传统工具：Playwright + MCP的颠覆性优势 
+<div id="" class=""table-box""></div><table id="" class=""></table><thead id="" class=""></thead><tr id="" class=""></tr><th id="" class=""></th>维度<th id="" class=""></th>Selenium<th id="" class=""></th>Playwright + MCP<tbody id="" class=""></tbody><tr id="" class=""></tr><td id="" class=""></td>安装复杂度<td id="" class=""></td>需手动配置浏览器驱动<td id="" class=""></td>自动安装，支持跨浏览器<tr id="" class=""></tr><td id="" class=""></td>执行速度<td id="" class=""></td>较慢（HTTP协议）<td id="" class=""></td>快速（WebSocket协议）<tr id="" class=""></tr><td id="" class=""></td>维护成本<td id="" class=""></td>高（元素定位易失效）<td id="" class=""></td>低（自动等待+动态指令生成）<tr id="" class=""></tr><td id="" class=""></td>智能化水平<td id="" class=""></td>无<td id="" class=""></td>支持LLM驱动的自然语言操作<tr id="" class=""></tr><td id="" class=""></td>适用场景<td id="" class=""></td>基础自动化测试<td id="" class=""></td>测试、数据抓取、调试、多工具协作<tr id="" class=""></tr><td id="" class=""></td>例如，处理动态表单时：<td id="" class=""></td><td id="" class=""></td> 
+<ul id="" class=""></ul><li id="" class=""></li>Selenium：需手动编写<code id="" class=""></code>WebDriverWait和复杂定位逻辑。<li id="" class=""></li>Playwright + MCP：LLM直接生成指令，自动处理元素加载和交互。 
+<hr id="" class=""></hr> 
+<p id="" class=""></p>##六、未来趋势：从工具到生态的跃迁 
+<ol id="" class=""></ol><li id="" class=""></li>多模态协作：结合WindSurf等工具，实现浏览器、数据库、API的联动操作。<li id="" class=""></li>企业级应用：支持私有化部署，适配金融、医疗等高安全需求场景。<li id="" class=""></li>低代码普及：非技术人员可通过自然语言描述需求，降低自动化门槛。 
+<hr id="" class=""></hr> 
+<h3 id="" class=""></h3><a id="" class=""></a><a id=""_92"" class=""></a>七、结语：开启智能自动化的新纪元 
+<p id="" class=""></p>Playwright + MCP的结合，标志着自动化领域从“代码驱动”向“AI驱动”的革命性转变。无论是测试工程师、开发人员还是数据分析师，均可借助这一技术栈大幅提升效率。<br id="" class=""></br> <img id="" class=""></img>
+<div id="" class=""></div><div id="" class=""></div>
+<link id="" class=""></link>
+<link id="" class=""></link>
+
+
+  
+
+<div id="" class=""directory-boxshadow-dialog""></div>
+  <div id="" class=""directory-boxshadow-dialog-box""></div>
+  
+   <div id=""vip-limited-time-offer-box-new"" class=""vip-limited-time-offer-box-new""></div>
+  <img id="" class=""limited-img limited-img-new""></img>
+  <div id="" class=""vip-limited-time-top""></div>
+确定要放弃本次机会？
+  
+  <span id="" class=""vip-limited-time-text""></span>福利倒计时
+  <div id="" class=""limited-time-box-new""></div>
+<span id="" class=""time-hour""></span>
+<i id="" class=""></i>:
+<span id="" class=""time-minite""></span>
+<i id="" class=""></i>:
+<span id="" class=""time-second""></span>
+  
+  <div id="" class=""limited-time-vip-box""></div>
+<p id="" class=""></p>
+  <img id="" class=""coupon-img""></img>
+  <span id="" class=""def""></span>立减 ¥
+  <span id="" class=""active limited-num""></span>
+
+<span id="" class=""""></span>普通VIP年卡可用
+  
+  <a id="" class=""limited-time-btn-new""></a>立即使用
+  
+
+<div id=""toolBarBox"" class=""more-toolbox-new more-toolbar more-toolbox-active""></div>
+  <div id="" class=""left-toolbox""></div>
+<div id="" class=""toolbox-left""></div>
+<div id="" class=""profile-box""></div>
+  <a id="" class=""profile-href""></a><img id="" class=""profile-img""></img>
+<span id="" class=""profile-name""></span>
+  测试工程师成长之路
+
+  
+
+<div id="" class=""profile-attend""></div>
+<a id="" class=""tool-attend tool-bt-button tool-bt-attend""></a>关注
+  <a id="" class=""tool-item-follow active-animation""></a>关注
+
+
+<div id="" class=""toolbox-middle""></div>
+  <ul id="" class=""toolbox-list""></ul>
+<li id=""is-like"" class=""tool-item tool-item-size tool-active is-like""></li>
+  <a id="" class=""tool-item-href""></a>
+<img id=""is-like-imgactive-animation-like"" class=""animation-dom active-animation""></img>
+<img id=""is-like-imgactive"" class=""isactive""></img>
+<img id=""is-like-img"" class=""isdefault""></img>
+<span id=""spanCount"" class=""count ""></span>
+9
+
+  
+  <div id="" class=""tool-hover-tip""></div><span id="" class=""text space""></span>点赞
+
+<li id=""is-unlike"" class=""tool-item tool-item-size tool-active is-unlike""></li>
+  <a id="" class=""tool-item-href""></a>
+<img id=""is-unlike-imgactive"" class=""isactive""></img>
+<img id=""is-unlike-img"" class=""isdefault""></img>
+<span id=""unlikeCount"" class=""count ""></span>
+  
+  <div id="" class=""tool-hover-tip""></div><span id="" class=""text space""></span>踩
+
+<li id="" class=""tool-item tool-item-size tool-active is-collection ""></li>
+  <a id="" class=""tool-item-href""></a>
+<img id=""is-collection-img-collection"" class=""animation-dom active-animation""></img>
+<img id=""is-collection-img"" class=""isdefault""></img>
+<img id=""is-collection-imgactive"" class=""isactive""></img>
+<span id=""get-collection"" class=""count get-collection ""></span>
+26
+
+  
+  <div id="" class=""tool-hover-tip collect""></div>
+<div id="" class=""collect-operate-box""></div>
+  <span id=""is-collection"" class=""collect-text""></span>
+收藏
+  
+
+  
+  <div id="" class=""tool-active-list""></div>
+<div id="" class=""text""></div>
+  觉得还不错?
+  <span id=""tool-active-list-collection"" class=""collect-text""></span>
+一键收藏
+  
+ <img id=""tool-active-list-close"" class=""></img>
+
+  
+
+<li id="" class=""tool-item tool-item-size tool-active tool-item-comment""></li>
+  
+<a id="" class=""tool-item-href""></a>
+<img id="" class=""isdefault""></img>
+<span id="" class=""count""></span>
+6
+
+  
+  <div id="" class=""tool-hover-tip""></div><span id="" class=""text space""></span>评论
+
+<li id=""tool-share"" class=""tool-item tool-item-size tool-active tool-QRcode""></li>
+  <a id="" class=""tool-item-href""></a>
+<img id="" class=""isdefault""></img>
+<span id="" class=""count""></span>分享
+  
+<div id=""tool-QRcode"" class=""QRcode""></div>
+<div id="" class=""share-bg-box""></div>
+  <div id="" class=""share-content""></div>
+<a id=""copyPosterUrl"" class=""btn-share""></a>复制链接
+  
+  <div id="" class=""share-content""></div>
+<a id="" class=""btn-share""></a>分享到 QQ
+  
+  <div id="" class=""share-content""></div>
+<a id="" class=""btn-share""></a>分享到新浪微博
+  
+  <div id="" class=""share-code""></div>
+<div id=""shareCode"" class=""share-code-box""></div><canvas id="" class=""></canvas><img id="" class=""></img>
+<div id="" class=""share-code-text""></div>
+  <img id="" class=""></img>扫一扫
+
+  
+
+  
+
+  <li id=""is-more"" class=""tool-item tool-item-size tool-active is-more""></li>
+<a id="" class=""tool-item-href""></a>
+  <img id="" class=""isdefault""></img>
+  <span id="" class=""count""></span>
+
+<div id="" class=""more-opt-box""></div>
+  <div id="" class=""mini-box""></div>
+<a id=""toolReportBtnHide"" class=""tool-item-href""></a>
+  <img id="" class=""isdefault""></img>
+  <span id="" class=""count""></span>举报
+
+  
+  <div id="" class=""normal-box""></div>
+<a id=""toolReportBtnHideNormal"" class=""tool-item-href""></a>
+  <img id="" class=""isdefault""></img>
+  <span id="" class=""count""></span>举报
+
+  
+
+  
+
+  
+  <div id="" class=""toolbox-right""></div>
+<div id="" class=""tool-directory""></div>
+<a id=""9947243"" class=""bt-columnlist-show""></a>专栏目录
+  
+
+
+
+
+
+
+  <div id=""dmp_ad_58"" class=""></div>
+<div id=""kp_box_58"" class=""></div><iframe id="" class=""></iframe><img id="" class=""pre-img-lasy""></img>
+  
+
+  <div id="" class=""second-recommend-box recommend-box ""></div>
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>基于<em id="" class=""></em>Playwright的<em id="" class=""></em>MCP服务项目：<em id="" class=""></em>mcp-<em id="" class=""></em>playwright技术解析与应用探索
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>这里汇聚了前沿的技术分享与实用的开发技巧，带你探索从创意到企业的技术创业之路。
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-07
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					612
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>mcp-<em id="" class=""></em>playwright是由Execute Automation团队开发的开源<em id="" class=""></em>浏览器<em id="" class=""></em>自动化解决方案，通过创新的Model Context Protocol（<em id="" class=""></em>MCP）协议，将<em id="" class=""></em>Playwright的<em id="" class=""></em>浏览器<em id="" class=""></em>自动化能力与<em id="" class=""></em>AI系统深度集成。项目地址：https<em id="" class=""></em>://github.com/executeautomation/<em id="" class=""></em>mcp-<em id="" class=""></em>playwright构建<em id="" class=""></em>AI与Web环境的双向交互通道实现<em id="" class=""></em>浏览器操作的协议化封装提供可扩展的<em id="" class=""></em>自动化服务框架基于<em id="" class=""></em>Playwright v1.40<em id="" class=""></em>+构建。
+			
+		
+	
+
+  
+<a id=""commentBox"" class=""></a>
+  <div id=""pcCommentBox"" class=""comment-box comment-box-new2 unlogin-comment-box-new""></div>
+  <div id="" class=""unlogin-comment-model""></div>
+  <span id="" class=""unlogin-comment-tit""></span>6&nbsp;条评论
+<span id="" class=""unlogin-comment-text""></span>您还未登录，请先
+<span id="" class=""unlogin-comment-bt""></span>登录
+<span id="" class=""unlogin-comment-text""></span>后发表或查看评论
+  
+  
+  <div id="" class=""recommend-box insert-baidu-box recommend-box-style ""></div>
+<div id="" class=""recommend-item-box no-index""></div><div id="" class=""recommend-item-box baiduSearch clearfix""></div>	<div id="" class=""content-box""></div>		<div id="" class=""content-blog display-flex""></div>			  <div id="" class=""title-box""></div>				  <a id="" class=""tit""></a>				<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>MCP<em id="" class=""></em>:开启<em id="" class=""></em>自动化测试的新篇章_<em id="" class=""></em>playwright-<em id="" class=""></em>mcp			  			  <div id="" class=""info-box display-flex""></div>  <div id="" class=""info display-flex""></div><span id="" class=""info-block""></span>5-23  <div id="" class=""desc-box""></div><a id="" class=""></a>  <div id="" class=""desc ellipsis-online ellipsis-online-1""></div>你可以使用VS Code CLI安装<em id="" class=""></em>Playwright <em id="" class=""></em>MCP服务器<em id="" class=""></em>: # For VS Codecode --add-<em id="" class=""></em>mcp'{"name"<em id="" class=""></em>:"<em id="" class=""></em>playwright","command"<em id="" class=""></em>:"npx","args"<em id="" class=""></em>:["@<em id="" class=""></em>playwright/<em id="" class=""></em>mcp@latest"]}'# For VS Code Insiderscode-insiders --add-<em id="" class=""></em>mcp'{"name"<em id="" class=""></em>:"<em id="" class=""></em>playwright","command"<em id="" class=""></em>:"npx","args"<em id="" class=""></em>:["@<em id="" class=""></em>playwright/<em id="" class=""></em>mcp@latest"]}' 1 2 3 ...<div id="" class=""recommend-item-box baiduSearch clearfix""></div>	<div id="" class=""content-box""></div>		<div id="" class=""content-blog display-flex""></div>			  <div id="" class=""title-box""></div>				  <a id="" class=""tit""></a>				<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>MCP<em id="" class=""></em>:<em id="" class=""></em>AI驱动的<em id="" class=""></em>浏览器<em id="" class=""></em>自动化				  			  <div id="" class=""info-box display-flex""></div>  <div id="" class=""info display-flex""></div><span id="" class=""info-block""></span>5-16  <div id="" class=""desc-box""></div><a id="" class=""></a>  <div id="" class=""desc ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>MCP(Model ContextProtocol)是微软推出的新一代<em id="" class=""></em>浏览器<em id="" class=""></em>自动化协议,它通过以下创新点<em id="" class=""></em>重新<em id="" class=""></em>定义了人机交互模式<em id="" class=""></em>: 结构化数据驱动<em id="" class=""></em>:基于可访问性树(Accessibility Tree)而非像素截图进行元素定位 精准操作保障<em id="" class=""></em>:通过唯一元素引用(ref)实现确定性操作 多模态支持<em id="" class=""></em>:同时支持Snapshot模式和Vision模式 ...
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>【深度学习新浪潮】什么是<em id="" class=""></em>MCP？
+					<div id="" class=""tag""></div>最新发布
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>agito_cheung的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>05-24
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					198
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>MCP（Model Context Protocol，模型上下文协议）是由Anthropic于2024年11月开源的标准化协议，旨在统一<em id="" class=""></em>AI模型与外部工具、数据源的交互方式，解决传统集成中的碎片化问题。其核心设计类似于USB-C接口，通过客户端-服务器架构（Host/Client/Server）实现模型与外部资源的“即插即用”，使<em id="" class=""></em>AI应用能够高效调用数据库、API、文件系统等资源，同时支持动态上下文传递和多模型协作。<em id="" class=""></em>MCP为<em id="" class=""></em>AI开发者提供了标准化的协作框架，显著降低了多模型集成和外部资源调用的复杂度。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright-<em id="" class=""></em>MCP 使用教程
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>gitblog_01019的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>03-29
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					2175
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright-<em id="" class=""></em>MCP 使用教程
+
+
+
+<em id="" class=""></em>playwright-<em id="" class=""></em>mcp
+<em id="" class=""></em>Playwright Tools for <em id="" class=""></em>MCP
+
+
+项目地址<em id="" class=""></em>: https<em id="" class=""></em>://gitcode.com/gh_mirrors/pl/<em id="" class=""></em>playwright-<em id="" class=""></em>mcp
+...
+			
+		
+	
+<div id="" class=""recommend-item-box baiduSearch clearfix""></div>	<div id="" class=""content-box""></div>		<div id="" class=""content-blog display-flex""></div>			  <div id="" class=""title-box""></div>			  <a id="" class=""tit""></a>					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>MCP Server 使用指南<em id="" class=""></em>:让 Cursor 拥有<em id="" class=""></em>浏览器<em id="" class=""></em>自动化能力_curso...				  			  <div id="" class=""info-box display-flex""></div>  <div id="" class=""info display-flex""></div><span id="" class=""info-block""></span>5-26  <div id="" class=""desc-box""></div><a id="" class=""></a>  <div id="" class=""desc ellipsis-online ellipsis-online-1""></div>今天分享一下<em id="" class=""></em>playwright<em id="" class=""></em>MCP Server,其提供了<em id="" class=""></em>浏览器<em id="" class=""></em>自动化能力,使大型语言模型能够在真实的<em id="" class=""></em>浏览器环境中与网页交互, 也可以执行任务,例如运行JavaScript、截屏和导航网页元素,同时无缝处理 API 测试以验证端点并确保可靠性。 Cursor配置 在Cursor 的 Cursor Settings 中找到 <em id="" class=""></em>MCP,点击右侧上方的 Add new global <em id="" class=""></em>MCP server...
+		
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>+ <em id="" class=""></em>MCP：用<em id="" class=""></em>AI<em id="" class=""></em>对话<em id="" class=""></em>重新<em id="" class=""></em>定义<em id="" class=""></em>浏览器<em id="" class=""></em>自动化，助力提效<em id="" class=""></em>300<em id="" class=""></em>%
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>m0_59235699的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-15
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1919
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright：跨<em id="" class=""></em>浏览器<em id="" class=""></em>自动化的“瑞士军刀”。<em id="" class=""></em>MCP协议通过<em id="" class=""></em>定义统一的通信标准，让LLM能够无缝调用外部工具（如<em id="" class=""></em>浏览器、数据库、本地文件）。客户端配置（以VSCode Cline为例）安装Cline插件安装后直接执行勾选这这个然后点击右上角点击installed配置：如果链接不上去可以然后输入允运行后，可以看到已经链接成功，有这么多tools然后就可以在本地进行测试了备注，如果没有大模型可以参考：配置国内开源的。上面是微软的，但是感觉微软的封装的没有那么多。网上还有一个。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>+ <em id="" class=""></em>MCP：<em id="" class=""></em>AI<em id="" class=""></em>对话驱动<em id="" class=""></em>浏览器<em id="" class=""></em>自动化，<em id="" class=""></em>效率<em id="" class=""></em>提升<em id="" class=""></em>300<em id="" class=""></em>%的实战指南
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>Conan_0728的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-25
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1090
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>不会用<em id="" class=""></em>AI写<em id="" class=""></em>自动化脚本的测试员，就像不会用IDE的程序员！：<em id="" class=""></em>AI与工具的通信标准（Model Context Protocol）：某电商平台登录流程维护需要3人/天，页面改版后80<em id="" class=""></em>%的脚本失效。：共建开源指令库（GitHub已有200<em id="" class=""></em>+场景模板）（数据来源：微软<em id="" class=""></em>Playwright官方基准测试）：<em id="" class=""></em>定义<em id="" class=""></em>浏览器操作、文件访问、API调用等权限级别。（数据来源：某电商平台2025年Q1测试报告）（数据来源：2025年全球测试<em id="" class=""></em>自动化报告）：敏感指令需人工确认（如支付操作）：微软开源的跨<em id="" class=""></em>浏览器<em id="" class=""></em>自动化引擎。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>Windows环境下搭建Cline<em id="" class=""></em>+<em id="" class=""></em>Playwright<em id="" class=""></em>+<em id="" class=""></em>MCP，超详细
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>ljyfree的专栏
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-23
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1822
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>详细的Cline<em id="" class=""></em>+<em id="" class=""></em>Playwright<em id="" class=""></em>+<em id="" class=""></em>MCP的安装设置流程
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>萌新靠<em id="" class=""></em>MCP实现RPA、爬虫自由？<em id="" class=""></em>playwright-<em id="" class=""></em>mcp实操案例分享！
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>HUANGXIN9898的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>05-02
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1480
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>最近，Microsoft推出了官方版的<em id="" class=""></em>playwright-<em id="" class=""></em>mcp。<em id="" class=""></em>playwright是一个能够操作<em id="" class=""></em>浏览器完成各项任务的工具，专业人士一般将其作为网络应用的测试工具，而对我们普通人来说，把它当成一个类爬虫的RPA（即Robotic Process Automation，机器人流程<em id="" class=""></em>自动化）工具倒是蛮不错的。其实在我关于<em id="" class=""></em>MCP的第一篇文章中，就使用<em id="" class=""></em>playwright实现了一个登录指定网页截图的效果。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>MCP-<em id="" class=""></em>Playwright：当<em id="" class=""></em>自动化测试遇上「万能插座」，<em id="" class=""></em>效率革命就此开启！
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>weixin_62427272的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>03-14
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					2566
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>你是否厌倦了为每个测试场景重复编写代码？是否希望测试工具能像“万能插座”一样，灵活接入任意外部服务？应运而生！这个结合了微软 <em id="" class=""></em>Playwright <em id="" class=""></em>自动化框架与 <em id="" class=""></em>MCP 协议的开源项目，正在<em id="" class=""></em>重新<em id="" class=""></em>定义智能测试的未来。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>【开发者必备】用<em id="" class=""></em>MCP <em id="" class=""></em>+ <em id="" class=""></em>Playwright实现零代码<em id="" class=""></em>自动化
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>kaka0722ww的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-22
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1588
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>更智能的流程规划：<em id="" class=""></em>AI将能够自主设计最优<em id="" class=""></em>自动化流程自我修复能力：当界面变化时，<em id="" class=""></em>自动化流程能自动调整策略多模态数据处理：不仅处理文本，还能处理图表、PDF等复杂格式低代码/无代码平台：更多开发者能通过自然语言创建复杂<em id="" class=""></em>自动化流程Cline <em id="" class=""></em>+ <em id="" class=""></em>MCP <em id="" class=""></em>+ <em id="" class=""></em>Playwright 的组合为技术开发者提供了一种<em id="" class=""></em>自动化解决方案。大幅提高开发<em id="" class=""></em>效率增强<em id="" class=""></em>自动化流程的适应性和稳定性<em id="" class=""></em>提升数据处理的准确性降低维护成本。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>微软发布<em id="" class=""></em>playwright官方<em id="" class=""></em>mcp server，看看实际应用效果吧
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>城下秋草‘s Blog
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-05
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1740
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>MCP协议是由<em id="" class=""></em>AI公司 Anthropic（claude的母公司）于2024年11月推出的一个针对<em id="" class=""></em>AI能力的开放协议，旨在标准化大语言模型（LLM）与外部数据源、工具之间的交互接口。而<em id="" class=""></em>MCP Server通过这些能力，<em id="" class=""></em>MCP Server可以为<em id="" class=""></em>AI应用提供更加丰富的上下文操作私有数据或特定应用的能力，从而增强 LLM 的实用性。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>MCP协议：<em id="" class=""></em>AI大模型与外部世界的标准化桥梁
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>专栏
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-27
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1165
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>由Anthropic于2024年11月开源发布，<em id="" class=""></em>MCP（Model Context Protocol）本质上是一种"<em id="" class=""></em>AI万能插座"，为开发者提供了统一的API框架，使大模型能够安全、高效地访问和操作本地及云端资源。随着Open<em id="" class=""></em>AI于2025年3月27日宣布全面集成<em id="" class=""></em>MCP协议，以及百度、腾讯等国内科技巨头积极拥抱这一标准，<em id="" class=""></em>MCP生态正以前所未有的速度扩张。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>OWL：面向真实世界任务<em id="" class=""></em>自动化的通用多智能体协作的优化型员工学习框架详解
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>Rhett_Butler0922的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>05-19
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					758
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>而“通用多智能体辅助” (General Multi-Agent Assistance) 则强调了OWL作为一种普适性框架的能力，它通过模块化设计、多样化的工具包支持以及与模型上下文协议 (<em id="" class=""></em>MCP) 的集成，实现了跨不同领域和应用需求的适应性，而非局限于特定类型的任务 1。OWL 作为一个领先的开源多智能体协作框架，为<em id="" class=""></em>自动化真实世界的复杂任务提供了强大的能力。OWL 框架的开源性质及其宏大的目标——实现通用的、能够学习和优化的多智能体辅助——为 <em id="" class=""></em>AI 领域的研究者和开发者提供了一个充满机遇的平台。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>OWL：真实世界任务<em id="" class=""></em>自动化中通用多智能体协作的优化型劳动力学习框架深度解析与复现指南
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>Rhett_Butler0922的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>05-19
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					842
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>OWL (Optimized Workforce Learning) 作为一个尖端的开源多智能体协作框架，致力于推动任务<em id="" class=""></em>自动化的边界 1。它构建于 CAMEL-<em id="" class=""></em>AI 框架之上，其愿景是通过利用动态智能体交互，革新<em id="" class=""></em>人工智能（<em id="" class=""></em>AI）智能体协作解决真实世界任务的方式，从而实现更自然、高效和鲁棒的跨领域任务<em id="" class=""></em>自动化 1。作为一个开源项目，OWL 不仅在技术社区获得了显著关注，例如在 G<em id="" class=""></em>AIA 基准测试中取得了开源框架中的领先排名，同时也体现了其在促进透明、可定制和研究友好的多智能体系统发展方面的潜力 3。OWL 项目
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>MCP-<em id="" class=""></em>Playwright：<em id="" class=""></em>AI<em id="" class=""></em>自动化神器，一款超级好用的<em id="" class=""></em>自动化测试框架！
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>测试开发技术
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-30
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					554
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>作为开源的 <em id="" class=""></em>AI 网页<em id="" class=""></em>自动化工具，可以让 Claude、GPT-4o 等 LLM 具备真实网页交互能力，实现 <em id="" class=""></em>浏览器操作、数据抓取、JavaScript 执行、网页截图 等功能。适用于<em id="" class=""></em>自动化测试、信息抓取、SEO 竞品分析、<em id="" class=""></em>AI 智能代理等任务。如果你希望让 <em id="" class=""></em>AI 更智能地处理网页任务，不妨试试 <em id="" class=""></em>Playwright <em id="" class=""></em>MCP Server。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>MCP 入门实战：<em id="" class=""></em>自动化测试与 Copilot 集成指南
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>gto310850806的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>05-01
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					1454
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>本文介绍了如何使用 <em id="" class=""></em>Playwright <em id="" class=""></em>MCP 实现网页的结构化<em id="" class=""></em>自动化测试，并结合 GitHub Copilot 实现自然语言驱动的<em id="" class=""></em>浏览器操作。通过配置 <em id="" class=""></em>MCP 服务、集成 VS Code 插件，以及使用 LLM Prompt 控制页面导航、表单输入等，开发者可以更高效地编写、调试 UI <em id="" class=""></em>自动化测试脚本。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>MCP 深度技术剖析与实战指南
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>加入“Super Entity”，与全能开发团队共探AI智能体与数字人项目，开启前沿技术之旅。
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>05-07
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					876
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>Playwright <em id="" class=""></em>MCP 允许用户自<em id="" class=""></em>定义工具的配置，例如调整截图的压缩率、设置截图的输出格式等。<em id="" class=""></em>Playwright <em id="" class=""></em>MCP 作为微软推出的一个创新性工具，为<em id="" class=""></em>浏览器<em id="" class=""></em>自动化领域带来了全新的视角和强大的功能支持。通过本文的深入剖析和实战案例分析，我们希望读者能够更好地理解和应用 <em id="" class=""></em>Playwright <em id="" class=""></em>MCP。无论是<em id="" class=""></em>自动化测试、数据抓取，还是智能代理与网页的交互，<em id="" class=""></em>Playwright <em id="" class=""></em>MCP 都能够提供高效、可靠且易于使用的解决方案。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_blog clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div><em id="" class=""></em>playwright <em id="" class=""></em>mcp实现UI<em id="" class=""></em>自动化测试
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info""></div>
+					<a id="" class=""></a><span id="" class=""blog-title""></span>weixin_45419608的博客
+				
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block time""></span>04-14
+					<span id="" class=""info-block read""></span><img id="" class=""read-img""></img>
+					548
+					
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>路径：文件-》首选项-》cursor settings-》<em id="" class=""></em>MCP下是否如下图所示,如图则表明正常使用。配置<em id="" class=""></em>mcp.json文件，文件位置：.cursor文件夹下，如没有可手动创建文件并配置如下内容。二级使用：给定网址<em id="" class=""></em>mcp自动生成<em id="" class=""></em>playwright框架的测试脚本并执行。即可在<em id="" class=""></em>对话框中编写指令，或创建一个文件编写指令并在<em id="" class=""></em>对话框中执行该文件。例如我的文件位置在：C<em id="" class=""></em>:\Users\自己的用户名\.cursor。一级使用：人为描述每一个步骤让<em id="" class=""></em>mcp执行打开网址，输入，点击等操作。
+			
+		
+	
+
+<div id="" class=""recommend-item-box type_chatgpt clearfix""></div>
+	<div id="" class=""content-box""></div>
+		<div id="" class=""content-blog display-flex""></div>
+			<div id="" class=""title-box""></div>
+				<a id="" class=""tit""></a>
+					<div id="" class=""left ellipsis-online ellipsis-online-1""></div>在TP-LINK TL-WDR5620千兆版路由器上设置端口映射时，如何保证公网IP与WAN口IP一致性并实现内网服务的远程访问？
+				
+			
+			<div id="" class=""info-box display-flex""></div>
+				<div id="" class=""info display-flex""></div>
+					<span id="" class=""info-block""></span>11-06
+				
+			
+		
+		<div id="" class=""desc-box""></div>
+			<a id="" class=""></a>
+				<div id="" class=""desc ellipsis-online ellipsis-online-1""></div>为了确保在TP-LINK TL-WDR5620千兆版路由器上成功设置端口映射并实现内网服务的远程访问，首先需要确保公网IP与路由器WAN口IP保持一致，这一步骤至关重要。通常，公网IP是由网络服务提供商分配的，用户需要通过路由器的管理界面查看并确认当前的公网IP是否与WAN口IP相同。如果不同，需联系网络服务提供商进行调整，以保证两者的一致性。
+
+参考资源链接：[TP-LINK路由器端口映射详尽教程：亲测设置指南](https<em id="" class=""></em>://wenku.csdn.net/doc/71at5sgd1n?spm=1055.2569.<em id="" class=""></em>3001.10343)
+
+当确认公网IP和WAN口IP一致后，可以按照以下步骤进行端口映射设置：
+
+1. 登录路由器的管理界面：在<em id="" class=""></em>浏览器中输入TP-LINK路由器的默认IP地址（通常为***.***.*.*或***.***.*.*），通过正确的用户名和密码登录到路由器的设置页面。
+
+2. 寻找端口映射配置项：在路由器设置界面中找到“转发规则”或者“高级设置”中的“端口转发”部分。
+
+3. 创建端口映射规则：点击添加规则，输入外部IP（实际上就是公网IP），外部端口号（用户希望对外公开的服务端口），内部IP（即内网服务设备的IP地址），内部端口号（服务设备上监听的端口），以及对应的协议类型（TCP或UDP）。之后保存并应用这些设置。
+
+4. 验证端口映射：设置完成后，建议通过外部网络（如手机数据或另一网络环境）来测试端口映射是否成功。可以使用在线端口检测工具或者直接尝试访问配置的内网服务地址和端口。
+
+5. 考虑安全因素：在实现远程访问的同时，建议了解和配置相应的安全措施，例如设置防火墙规则，使用强密码等，以防止潜在的安全风险。
+
+通过上述步骤，即可在TP-LINK TL-WDR5620千兆版路由器上实现端口映射，并确保网络安全的前提下，实现内网服务的远程访问。由于不同网络环境可能存在差异，用户在操作过程中应根据实际情况灵活调整，确保设置的正确性和有效性。
+
+参考资源链接：[TP-LINK路由器端口映射详尽教程：亲测设置指南](https<em id="" class=""></em>://wenku.csdn.net/doc/71at5sgd1n?spm=1055.2569.<em id="" class=""></em>3001.10343)
+			
+		
+	
+
+  
+<div id="" class=""blog-footer-bottom""></div>
+<div id=""copyright-box"" class=""""></div>
+  <div id=""csdn-copyright-footer"" class=""column small""></div>
+<ul id="" class=""footer-column-t""></ul>
+<li id="" class=""></li>
+  <a id="" class=""></a>关于我们
+
+<li id="" class=""></li>
+  <a id="" class=""></a>招贤纳士
+
+<li id="" class=""></li><a id="" class=""></a>商务合作
+<li id="" class=""></li><a id="" class=""></a>寻求报道
+<li id="" class=""></li>
+  <img id="" class=""></img>
+  <span id="" class=""></span>400-660-0108
+
+<li id="" class=""></li>
+  <img id="" class=""></img>
+  <a id="" class=""></a>kefu@csdn.net
+
+<li id="" class=""></li>
+  <img id="" class=""></img>
+  <a id="" class=""></a>在线客服
+
+<li id="" class=""></li>
+  工作时间&nbsp;8:30-22:00
+
+  
+<ul id="" class=""footer-column-b""></ul>
+<li id="" class=""></li><img id="" class=""></img><a id="" class=""></a>公安备案号11010502030143
+<li id="" class=""></li><a id="" class=""></a>京ICP备19004658号
+<li id="" class=""></li><a id="" class=""></a>京网文〔2020〕1039-165号
+<li id="" class=""></li><a id="" class=""></a>经营性网站备案信息
+<li id="" class=""></li><a id="" class=""></a>北京互联网违法和不良信息举报中心
+<li id="" class=""></li><a id="" class=""></a>家长监护
+<li id="" class=""></li><a id="" class=""></a>网络110报警服务
+<li id="" class=""></li><a id="" class=""></a>中国互联网举报中心
+<li id="" class=""></li><a id="" class=""></a>Chrome商店下载
+<li id="" class=""></li><a id="" class=""></a>账号管理规范
+<li id="" class=""></li><a id="" class=""></a>版权与免责声明
+<li id="" class=""></li><a id="" class=""></a>版权申诉
+<li id="" class=""></li><a id="" class=""></a>出版物许可证
+<li id="" class=""></li><a id="" class=""></a>营业执照
+<li id="" class=""></li>©1999-2025北京创新乐知网络技术有限公司
+  
+  
+
+  
+
+  
+<aside id="" class=""blog_container_aside""></aside>
+
+<div id=""asideProfile"" class=""aside-box active""></div>
+<div id="" class=""profile-intro d-flex""></div>
+<div id="" class=""avatar-box d-flex justify-content-center flex-column""></div>
+<a id="" class=""></a>
+<img id="" class=""avatar_pic""></img>
+
+
+<div id="" class=""user-info d-flex flex-column profile-intro-name-box""></div>
+<div id="" class=""profile-intro-name-boxTop""></div>
+<a id=""uid"" class=""""></a>
+<span id="" class=""name""></span>测试工程师成长之路
+
+
+<div id="" class=""profile-intro-name-boxFooter-new""></div>
+  <p id="" class=""profile-intro-name-leve""></p>
+<span id="" class=""></span>
+  博客等级
+
+  <img id="" class=""level""></img>
+  
+<span id="" class=""profile-intro-name-years""></span>码龄11年
+   
+
+
+
+<div id="" class=""profile-intro-rank-information""></div>
+  <dl id="" class=""></dl>
+<a id="" class=""></a>  
+<dd id="" class=""></dd><span id="" class=""></span>114
+<dt id="" class=""></dt>原创
+
+  
+   <dl id="" class=""></dl>
+<dd id="" class=""></dd>1702
+<dt id="" class=""></dt>点赞
+  
+   <dl id="" class=""></dl>
+<dd id="" class=""></dd>1958
+<dt id="" class=""></dt>收藏
+  
+  <dl id=""fanBox"" class=""></dl>
+<dd id="" class=""></dd><span id=""fan"" class=""></span>1973
+<dt id="" class=""></dt>粉丝
+  
+
+<div id="" class=""profile-intro-name-boxOpration""></div>
+<div id="" class=""opt-letter-watch-box""></div> 
+<a id=""btnAttent"" class=""personal-watch bt-button""></a>关注  
+
+<div id="" class=""opt-letter-watch-box""></div>
+<a id="" class=""bt-button personal-letter""></a>私信
+
+
+
+  <div id="" class=""swiper-slide-box-remuneration""></div>
+<a id="" class=""></a>
+  <img id="" class=""></img>
+
+  
+
+<div id="" class=""box-shadow mb8""></div>
+<div id=""cpro_u2734133"" class=""aside-content text-center""></div>
+<div id=""kp_box_56"" class=""></div><div id=""149"" class=""wwads-cn wwads-vertical""></div> 
+<style id="" class=""></style>.wwads-img img {width: 150px; margin-top:10px}<img id="" class=""pre-img-lasy""></img>
+
+
+
+
+<div id=""his-selection"" class=""aside-box""></div>
+<h3 id="" class=""aside-title""></h3>TA的精选
+<div id="" class=""aside-content""></div>
+<ul id="" class=""his-selection-box""></ul>
+<li id="" class=""his-selection-item""></li>
+<a id="" class=""title""></a>
+<span id="" class=""tag""></span>新
+<span id="" class=""text""></span>自动化测试Allure报告使用详解
+
+<p id="" class=""read-count""></p>
+924 阅读   
+
+
+<li id="" class=""his-selection-item""></li>
+<a id="" class=""title""></a>
+<span id="" class=""tag""></span>新
+<span id="" class=""text""></span>Jmeter+Jenkins+Ant自动化持续集成环境搭建
+
+<p id="" class=""read-count""></p>
+823 阅读   
+
+
+<li id="" class=""his-selection-item""></li>
+<a id="" class=""title""></a>
+<span id="" class=""tag active""></span>热
+<span id="" class=""text""></span>Windows环境搭建 Gitlab 服务器
+
+<p id="" class=""read-count""></p>
+31983 阅读   
+
+
+<li id="" class=""his-selection-item""></li>
+<a id="" class=""title""></a>
+<span id="" class=""tag active""></span>热
+<span id="" class=""text""></span>10分钟搞定！用WSL在Windows上优雅安装 Docker，开发者福音
+
+<p id="" class=""read-count""></p>
+12420 阅读   
+
+
+<li id="" class=""his-selection-item""></li>
+<a id="" class=""title""></a>
+<span id="" class=""tag active""></span>热
+<span id="" class=""text""></span>自动化测试面试题及答案
+
+<p id="" class=""read-count""></p>
+7905 阅读   
+
+
+
+  <p id="" class=""his-selection-move""></p>
+<a id="" class=""more""></a>查看更多 <img id="" class=""></img>
+  
+
+<div id="" class=""archive-box""></div>
+<div id="" class=""archive-list-item""></div><a id="" class=""></a><span id="" class=""year""></span>2025年<span id="" class=""num""></span>30篇
+<div id="" class=""archive-list-item""></div><a id="" class=""></a><span id="" class=""year""></span>2024年<span id="" class=""num""></span>63篇
+<div id="" class=""archive-list-item""></div><a id="" class=""></a><span id="" class=""year""></span>2023年<span id="" class=""num""></span>11篇
+<div id="" class=""archive-list-item""></div><a id="" class=""></a><span id="" class=""year""></span>2022年<span id="" class=""num""></span>5篇
+<div id="" class=""archive-list-item""></div><a id="" class=""></a><span id="" class=""year""></span>2021年<span id="" class=""num""></span>8篇
+<div id="" class=""archive-list-item""></div><a id="" class=""></a><span id="" class=""year""></span>2020年<span id="" class=""num""></span>6篇
+
+
+ <div id=""asideCategory"" class=""aside-box ""></div>
+<h3 id="" class=""aside-title""></h3>分类专栏
+<div id=""aside-content"" class=""aside-content""></div>
+<ul id="" class=""></ul>
+<li id="" class=""></li>
+<a id="" class=""clearfix special-column-name""></a>
+<div id="" class=""special-column-bar ""></div>
+<img id="" class=""></img>
+<span id="" class=""title oneline""></span>
+测试工程师成长之路
+
+
+<span id="" class=""special-column-num""></span>43篇
+
+
+
+<p id="" class=""text-center""></p>
+  <a id="" class=""flexible-btn-new""></a><span id="" class=""text""></span>展开全部 <img id="" class=""look-more""></img>
+  <a id="" class=""flexible-btn-new-close""></a><span id="" class=""text""></span>收起 <img id="" class=""look-more""></img>
+
+
+	<div id=""footerRightAds"" class=""isShowFooterAds""></div>
+		<div id="" class=""aside-box""></div>
+			<div id=""kp_box_57"" class=""></div><iframe id="" class=""></iframe><img id="" class=""pre-img-lasy""></img>
+		
+	
+
+
+<div id=""asidedirectory"" class=""aside-box""></div>
+<div id=""directory"" class=""groupfile groupfile-active""></div>
+<h3 id="" class=""aside-title""></h3>目录
+<div id=""align-items-stretch"" class=""align-items-stretch group_item""></div>
+<div id="" class=""pos-box""></div>
+<div id="" class=""scroll-box""></div>
+<div id="" class=""toc-box""></div><ol id="" class=""></ol><li id="" class=""active""></li><a id="" class=""></a>一、引言：自动化测试的“瓶颈”与MCP的革新<li id="" class=""></li><a id="" class=""></a>二、Playwright：跨浏览器自动化的“瑞士军刀”<li id="" class=""></li><a id="" class=""></a>三、MCP协议：标准化AI与工具的“对话”<li id="" class=""></li><a id="" class=""></a>四、实战：从安装到AI驱动的自动化<li id="" class=""sub-box""></li><ol id="" class=""></ol><li id="" class=""></li><a id="" class=""></a>1. 环境搭建<li id="" class=""></li><a id="" class=""></a>2. 客户端配置（以VSCode Cline为例）<li id="" class=""></li><a id="" class=""></a>3. 高级场景：动态调试与数据抓取<li id="" class=""></li><a id="" class=""></a>五、对比传统工具：Playwright + MCP的颠覆性优势<li id="" class=""></li><a id="" class=""></a>七、结语：开启智能自动化的新纪元
+
+
+
+  <p id=""flexible-btn-groupfile"" class=""flexible-btn-new active""></p><span id="" class=""text""></span>展开全部 <img id="" class=""look-more""></img>
+  <p id="" class=""flexible-btn-new-close active""></p><span id="" class=""text""></span>收起 <img id="" class=""look-more""></img>
+
+
+
+
+
+
+<div id=""rightAside"" class=""recommend-right align-items-stretch clearfix""></div>
+<aside id="" class=""recommend-right_aside""></aside>
+  <div id="" class=""rightside-fixed-hide""></div>
+   <div id="" class=""programmer1Box""></div>
+<div id=""kp_box_530"" class=""></div>
+
+<ins id="" class=""adsbygoogle""></ins><div id=""aswift_1_host"" class=""></div><iframe id=""aswift_1"" class=""></iframe>
+<img id="" class=""pre-img-lasy""></img>
+
+  <div id="" class=""recommend-column-box aside-box""></div>
+<h3 id="" class=""aside-title""></h3>相关专栏 
+<div id="" class=""aside-content""></div>
+<div id="" class=""recommend-column-itembox exp2""></div>
+  <a id="" class=""></a>
+<div id="" class=""info-box""></div>
+  <div id="" class=""img-box""></div>
+<div id="" class=""column-img""></div>
+  
+  <div id="" class=""info""></div>
+<div id="" class=""title-box""></div>
+  <p id="" class=""title""></p>人工智能
+  <p id="" class=""tag""></p>专栏
+
+<p id="" class=""learn""></p>0 人学习
+  
+
+<p id="" class=""desc""></p>人工智能的方方面面，包括但不限定：
+- 人工智能算法
+- 人工智能论文研读
+- 人工智能新技术。新应用、
+- 人工智能时代
+  
+<div id="" class=""rc-article-box""></div>
+  <a id="" class=""></a>
+<em id="" class=""></em>MCP协议：<em id="" class=""></em>AI大模型与外部世界的标准化桥梁
+  
+
+
+<div id="" class=""recommend-column-itembox exp2""></div>
+  <a id="" class=""></a>
+<div id="" class=""info-box""></div>
+  <div id="" class=""img-box""></div>
+<div id="" class=""column-img""></div>
+  
+  <div id="" class=""info""></div>
+<div id="" class=""title-box""></div>
+  <p id="" class=""title""></p>深度学习新浪潮
+  <p id="" class=""tag""></p>专栏
+
+<p id="" class=""learn""></p>24 人学习
+  
+
+<p id="" class=""desc""></p>讨论深度学习的最新研发进展，专注于技术细节外的分析。
+  
+<div id="" class=""rc-article-box""></div>
+  <a id="" class=""></a>
+【深度学习新浪潮】什么是<em id="" class=""></em>MCP？
+  
+
+
+<div id="" class=""recommend-column-itembox exp2""></div>
+  <a id="" class=""></a>
+<div id="" class=""info-box""></div>
+  <div id="" class=""img-box""></div>
+<div id="" class=""column-img""></div>
+  
+  <div id="" class=""info""></div>
+<div id="" class=""title-box""></div>
+  <p id="" class=""title""></p>Hacker技术提升基地
+  <p id="" class=""tag""></p>专栏
+
+<p id="" class=""learn""></p>32 人学习
+  
+
+<p id="" class=""desc""></p>国内外前沿先进的技术分析，不同技术实现方案分享，了解最新的漏洞、漏洞EXP和安全技术。专注于反诈先知、学习路线、安全热点、工具分享、漏洞挖掘、前沿新技术研究，持续更新。
+  
+<div id="" class=""rc-article-box""></div>
+  <a id="" class=""></a>
+红蓝对抗中，经常会遇到web后台登陆和各种各类的验证码问题，要想对其爆破，需要应对诸多挑战，结合现在 <em id="" class=""></em>AI agent 以及云码技术，做成一个适配90%以上的系统通用<em id="" class=""></em>自动化登陆流程，为安全人员提供支持
+  
+
+
+
+  
+  
+<div id=""recommend-right"" class=""></div>
+  <div id=""groupfile"" class=""flex-column aside-box groupfile groupfile-active ""></div>
+  <div id="" class=""groupfile-div""></div>
+  <h3 id="" class=""aside-title""></h3>目录
+  <div id=""align-items-stretch-right"" class=""align-items-stretch group_item""></div>
+  <div id="" class=""pos-box""></div>
+  <div id="" class=""scroll-box""></div>
+  <div id="" class=""toc-box""></div><ol id="" class=""></ol><li id="" class=""active""></li><a id="" class=""></a>一、引言：自动化测试的“瓶颈”与MCP的革新<li id="" class=""></li><a id="" class=""></a>二、Playwright：跨浏览器自动化的“瑞士军刀”<li id="" class=""></li><a id="" class=""></a>三、MCP协议：标准化AI与工具的“对话”<li id="" class=""></li><a id="" class=""></a>四、实战：从安装到AI驱动的自动化<li id="" class=""sub-box""></li><ol id="" class=""></ol><li id="" class=""></li><a id="" class=""></a>1. 环境搭建<li id="" class=""></li><a id="" class=""></a>2. 客户端配置（以VSCode Cline为例）<li id="" class=""></li><a id="" class=""></a>3. 高级场景：动态调试与数据抓取<li id="" class=""></li><a id="" class=""></a>五、对比传统工具：Playwright + MCP的颠覆性优势<li id="" class=""></li><a id="" class=""></a>七、结语：开启智能自动化的新纪元
+  
+  
+  
+<p id=""flexible-btn-groupfile"" class=""flexible-btn-new""></p><span id="" class=""text""></span>展开全部 <img id="" class=""look-more""></img>
+<p id="" class=""flexible-btn-new-close close""></p><span id="" class=""text""></span>收起 <img id="" class=""look-more""></img>
+  
+  
+  <div id=""recommendAdBox"" class=""></div>
+  <div id=""kp_box_479"" class=""></div><div id=""149"" class=""wwads-cn wwads-vertical""></div> 
+<style id="" class=""></style>.wwads-img img {width: 150px; margin-top:10px}
+<img id="" class=""pre-img-lasy""></img>
+  
+  <div id="" class=""aside-box kind_person d-flex flex-column flexible-box-new""></div>
+  <h3 id="" class=""aside-title""></h3>分类专栏
+  <div id=""kind_person_column"" class=""align-items-stretch kindof_item""></div>
+  <div id=""aside-content-column"" class=""aside-content""></div>
+  <ul id="" class=""></ul>
+  <li id="" class=""></li>
+  <a id="" class=""clearfix special-column-name""></a>
+  <div id="" class=""special-column-bar ""></div>
+  <img id="" class=""></img>
+  <span id="" class=""""></span>
+  测试工程师成长之路
+  
+  
+  <span id="" class=""special-column-num""></span>43篇
+  
+  
+  
+<p id="" class=""text-center""></p>
+  <a id="" class=""flexible-btn-new""></a><span id="" class=""text""></span>展开全部 <img id="" class=""look-more""></img>
+  <a id="" class=""flexible-btn-new-close""></a><span id="" class=""text""></span>收起 <img id="" class=""look-more""></img>
+
+  
+  
+
+
+
+
+
+
+  <div id="" class=""passport-login-tip-container false""></div>
+<p id="" class=""tit""></p>登录后您可以享受以下权益：
+<ul id="" class=""></ul>
+  <li id="" class=""></li><img id="" class=""></img><span id="" class=""></span>免费复制代码
+  <li id="" class=""></li><img id="" class=""></img><span id="" class=""></span>和博主大V互动
+  <li id="" class=""></li><img id="" class=""></img><span id="" class=""></span>下载海量资源
+  <li id="" class=""></li><img id="" class=""></img><span id="" class=""></span>发动态/写文章/加入社区
+
+  <span id="" class=""></span>×<button id="" class=""></button>立即登录
+  <div id="" class=""mask-dark""></div>
+
+  <div id="" class=""skin-boxshadow""></div>
+  <div id="" class=""directory-boxshadow""></div>
+<div id=""commentSideBoxshadow"" class=""comment-side-box-shadow comment-side-tit-close""></div>
+<div id="" class=""comment-side-content""></div>
+	<div id="" class=""comment-side-tit""></div>
+		<div id="" class=""comment-side-tit-count""></div>评论&nbsp;<span id="" class=""count""></span>6
+	<img id="" class=""comment-side-tit-close""></img>
+	<div id=""pcCommentSideBox"" class=""comment-box comment-box-new2 unlogin-comment-box-new""></div>
+	
+	<div id=""pcFlodCommentSideBox"" class=""pc-flodcomment-sidebox""></div>
+		<div id="" class=""comment-fold-tit""></div><span id=""lookUnFlodComment"" class=""back""></span><img id="" class=""></img>被折叠的&nbsp;<span id="" class=""count""></span>&nbsp;条评论
+		 <a id="" class=""tip""></a>为什么被折叠?
+		 <a id="" class=""park""></a>
+		 <img id="" class=""></img>到【灌水乐园】发言
+		
+		<div id="" class=""comment-fold-content""></div>
+		<div id=""lookBadComment"" class=""look-bad-comment side-look-comment""></div>
+			<a id="" class=""look-more-comment""></a>查看更多评论<img id="" class=""></img>
+		
+	
+
+<div id="" class=""comment-rewarddialog-box""></div>
+  <div id="" class=""form-box""></div>
+<div id="" class=""title-box""></div>
+  添加红包
+  <a id="" class=""btn-form-close""></a>
+
+<form id=""commentRewardForm"" class=""></form>
+  <div id="" class=""ipt-box""></div>
+<label id="" class=""></label>祝福语
+<div id="" class=""ipt-btn-box""></div>
+  <input id=""txtName"" class=""></input>
+  <a id="" class=""btn-ipt btn-random""></a>
+
+<p id="" class=""notice""></p>请填写红包祝福语或标题
+  
+  <div id="" class=""ipt-box""></div>
+<label id="" class=""></label>红包数量
+<div id="" class=""ipt-txt-box""></div>
+  <input id=""txtSendAmount"" class=""></input>
+  <span id="" class=""after-txt""></span>个
+
+<p id="" class=""notice""></p>红包个数最小为10个
+  
+  <div id="" class=""ipt-box""></div>
+<label id="" class=""></label>红包总金额
+<div id="" class=""ipt-txt-box error""></div>
+  <input id=""txtMoney"" class=""></input>
+  <span id="" class=""after-txt""></span>元
+
+<p id="" class=""notice""></p>红包金额最低5元
+  
+  <div id="" class=""balance-info-box""></div>
+<label id="" class=""></label>余额支付
+<div id="" class=""balance-info""></div>
+  当前余额<span id="" class=""balance""></span>3.43元
+  <a id="" class=""link-charge""></a>前往充值 &gt;
+
+  
+  <div id="" class=""opt-box""></div>
+<div id="" class=""pay-info""></div>
+  需支付：<span id="" class=""price""></span>10.00元
+
+<button id="" class=""ml-auto btn-cancel""></button>取消
+<button id="" class=""ml8 btn-submit""></button>确定
+  
+
+  
+
+
+
+
+<div id=""redEnvolope"" class=""redEnvolope""></div>
+  <div id="" class=""env-box""></div>
+<div id="" class=""env-container""></div>
+  <div id=""preOpen"" class=""pre-open""></div>
+<div id="" class=""top""></div>
+  <header id="" class=""></header>
+<img id="" class=""clearTpaErr""></img>
+<div id="" class=""author""></div>成就一亿技术人!
+  
+  <div id="" class=""bot-icon""></div>
+
+<footer id="" class=""></footer>
+  <div id="" class=""red-openbtn open-start""></div>
+  <div id="" class=""tip""></div>
+领取后你会自动成为博主和红包主的粉丝
+<a id="" class=""rule""></a>规则
+  
+
+  
+  <div id=""opened"" class=""opened""></div>
+<div id="" class=""bot-icon""></div>
+  <header id="" class=""></header>
+<a id="" class=""creatorUrl""></a>
+  <img id="" class=""clearTpaErr""></img>
+
+<div id="" class=""author""></div>
+  <div id="" class=""tt""></div>hope_wisdom 发出的红包
+
+  
+
+<div id="" class=""receive-box""></div>
+  <header id="" class=""></header>
+  <div id="" class=""receive-list""></div>
+  
+
+  
+
+<div id="" class=""close-btn""></div>
+  
+
+  
+  <div id="" class=""pay-code""></div>
+  <div id="" class=""pay-money""></div>实付<span id="" class=""pay-money-span""></span>元
+  <div id="" class=""content-blance""></div><a id="" class=""blance-bt""></a>使用余额支付
+  <div id="" class=""content-code""></div>
+<div id=""payCode"" class=""></div>
+  <div id="" class=""renovate""></div>
+<img id="" class=""></img>
+<span id="" class=""></span>点击重新获取
+  
+
+<div id="" class=""pay-style""></div><span id="" class=""></span><img id="" class=""></img><span id="" class=""></span><img id="" class=""></img><span id="" class=""></span><img id="" class=""></img><span id="" class=""text""></span>扫码支付
+  
+  <div id="" class=""bt-close""></div>
+<svg id=""10924"" class=""icon""></svg>
+  <defs id="" class=""></defs>
+<style id="" class=""></style>
+  
+  <path id=""10925"" class=""></path>
+
+  
+  <div id="" class=""pay-balance""></div>
+<input id="" class=""pay-code-radio""></input>
+<span id="" class=""span""></span>钱包余额
+  <span id="" class=""balance""></span>0
+  <div id="" class=""pay-code-tile""></div>
+<img id="" class=""></img>
+<div id="" class=""pay-code-content""></div>
+  <div id="" class=""span""></div>
+<p id="" class=""title""></p>抵扣说明：
+<p id="" class=""></p> 1.余额是钱包充值的虚拟货币，按照1:1的比例进行支付金额的抵扣。<br id="" class=""></br> 2.余额无法直接购买下载，可以购买VIP、付费专栏及课程。
+  
+
+  
+  
+  <a id="" class=""pay-balance-con""></a><img id="" class=""></img><span id="" class=""></span>余额充值
+
+<div id="" class=""></div>
+  <img id="" class=""></img>
+
+<div id=""keywordDecBox"" class=""keyword-dec-box""></div>
+  
+  
+  
+  
+  
+  
+  <link id="" class=""></link>
+  <link id="" class=""></link>
+  
+  
+
+  
+  
+  
+  
+  
+  
+  <div id=""c_chat"" class=""></div><div id=""chat-pro"" class=""chat-wrapper simple""></div><div id="" class=""el-overlay chat-drawer""></div><div id="" class=""chat-drawer el-drawer rtl""></div><span id="" class=""el-drawer__sr-focus""></span>
+  
+
+  
+  
+  
+  
+
+<div id=""pointDivs"" class=""></div><div id="" class=""point-outer point-pre""></div><div id="" class=""point-inner""></div><div id="" class=""point-outer point-pre""></div><div id="" class=""point-inner""></div><div id="" class=""point-outer point-pre""></div><div id="" class=""point-inner""></div><div id="" class=""point-outer point-pre""></div><div id="" class=""point-inner""></div><div id="" class=""point-outer point-pre""></div><div id="" class=""point-inner""></div><div id=""st_mask"" class=""></div><div id=""st_confirmBox"" class=""></div><div id=""st_confirm"" class=""></div><span id=""st_confirm_tit"" class=""></span><span id=""st_confirm_text"" class=""></span><span id="" class=""st_confirm_btn success""></span>确定<span id="" class=""st_confirm_btn cancel""></span>取消<span id=""st_confirm_close"" class=""></span><img id="" class=""></img><div id="" class=""></div><div id=""st_alertBox"" class=""></div><div id=""st_alert"" class=""></div><span id=""st_alert_text"" class=""></span><span id=""st_alert_btn"" class=""></span><div id=""st_toastBox"" class=""></div><span id=""st_toastContent"" class=""></span> <div id="" class=""report-box""></div>  <div id="" class=""pos-boxer""></div>  <div id="" class=""pos-content""></div>  <div id="" class=""box-title""></div>  <p id="" class=""></p>举报  <img id="" class=""icon btn-close""></img><div id="" class=""box-header""></div>  <div id="" class=""box-top""></div><span id="" class=""></span>选择你想要举报的内容（必选）  <div id="" class=""box-botoom""></div>  <ul id="" class=""></ul>  <li id="" class=""></li>内容涉黄  <li id="" class=""></li>政治相关  <li id="" class=""></li>内容抄袭  <li id="" class=""></li>涉嫌广告  <li id="" class=""></li>内容侵权  <li id="" class=""></li>侮辱谩骂  <li id="" class=""></li>样式问题  <li id="" class=""></li>其他<div id="" class=""></div>  <div id="" class=""box-content""></div><div id="" class=""box-content""></div>  <div id="" class=""box-content""></div>  <div id="" class=""box-content-top""></div>  <span id="" class=""></span>原文链接（必填）<div id="" class=""box-content-bottom""></div><div id="" class=""box-input""></div><input id=""originalurl"" class=""content-input""></input>  <div id="" class=""box-content""></div><div id="" class=""box-content""></div>  <div id="" class=""box-content-top""></div>  <span id="" class=""></span>请选择具体原因（必选）<div id="" class=""box-content-bottom""></div>  <ul id="" class=""></ul>  <li id="" class=""></li>包含不实信息  <li id="" class=""></li>涉及个人隐私<div id="" class=""box-content""></div>  <div id="" class=""box-content-top""></div>  <span id="" class=""></span>请选择具体原因（必选）<div id="" class=""box-content-bottom""></div>  <ul id="" class=""></ul>  <li id="" class=""></li>侮辱谩骂  <li id="" class=""></li>诽谤<div id="" class=""box-content""></div><div id="" class=""box-content-top""></div><span id="" class=""></span>请选择具体原因（必选）<div id="" class=""box-content-bottom""></div><ul id="" class=""></ul><li id="" class=""></li>搬家样式<li id="" class=""></li>博文样式<div id="" class=""box-content""></div><div id=""cllcont"" class=""></div><div id="" class=""box-content-top""></div>  <span id="" class=""box-content-span""></span>补充说明（选填）<div id="" class=""box-content-bottom""></div>  <div id="" class=""box-input""></div><textarea id="" class=""ipt ipt-textarea""></textarea><div id="" class=""pos-footer""></div>  <p id="" class=""btn-close""></p>取消  <p id="" class=""box-active""></p>确定<svg id="" class=""></svg><symbol id=""sousuo"" class=""></symbol><path id="" class=""></path><symbol id=""gonggong_csdnlogo_"" class=""></symbol><path id="" class=""></path><path id="" class=""></path><symbol id=""gonggong_csdnlogodanse_"" class=""></symbol><path id="" class=""></path><symbol id=""xieboke1"" class=""></symbol><path id="" class=""></path><symbol id=""gitchat"" class=""></symbol><path id="" class=""></path><symbol id=""toolbar-memberhead"" class=""></symbol><path id="" class=""></path><path id="" class=""></path><symbol id=""toolbar-m-memberhead"" class=""></symbol><path id="" class=""></path><path id="" class=""></path><symbol id=""csdnc-upload"" class=""></symbol><path id="" class=""></path><div id="" class=""></div>
+  <div id="" class=""csdn-side-toolbar ""></div><a id=""sidecolumn-deepseek"" class=""option-box sidecolumn sidecolumn-deepseek""></a><img id="" class=""></img><span id="" class=""show-txt""></span>点击体验<br id="" class=""></br>DeepSeekR1满血版  
+
+<a id="" class=""option-box styleab no—h""></a>
+  <img id="" class=""></img>
+  <div id="" class=""app-qr-box""></div>
+<div id="" class=""bg-box""></div>
+  
+  <div id="" class=""tab-pane""></div>
+<input id=""tab0"" class=""></input>
+<label id="" class=""tab-item""></label>下载APP
+<div id="" class=""tab-content""></div>
+  <div id="" class=""img-box""></div><img id="" class=""></img>
+  <p id="" class=""desc""></p>程序员都在用的中文IT技术交流社区
+
+  
+  
+  <div id="" class=""tab-pane""></div>
+<input id=""tab1"" class=""></input>
+<label id="" class=""tab-item""></label>公众号
+<div id="" class=""tab-content""></div>
+  <div id="" class=""img-box""></div><img id="" class=""></img>
+  <p id="" class=""desc""></p>专业的中文 IT 技术社区，与千万技术人共成长
+
+  
+  
+  <div id="" class=""tab-pane""></div>
+<input id=""tab2"" class=""></input>
+<label id="" class=""tab-item""></label>视频号
+<div id="" class=""tab-content""></div>
+  <div id="" class=""img-box""></div><img id="" class=""></img>
+  <p id="" class=""desc""></p>关注【CSDN】视频号，行业资讯、技术分享精彩不断，直播好礼送不停！
+
+  
+  
+
+  
+
+
+
+<a id="" class=""option-box styleab""></a>
+  <img id="" class=""></img>
+  <span id="" class=""show-txt""></span>客服
+
+
+
+<a id="" class=""option-box styleab go-top-hide""></a>
+  <img id="" class=""></img>
+  <span id="" class=""show-txt""></span>返回顶部
+
+
+  
+  <ins id="" class=""adsbygoogle adsbygoogle-noablate""></ins><div id=""aswift_0_host"" class=""></div><iframe id=""aswift_0"" class=""></iframe><div id="" class=""imgViewDom""></div><div id="" class=""swiper swiper-container-initialized swiper-container-horizontal""></div>  <a id="" class=""close-btn""></a><img id="" class=""></img><div id="" class=""swiper-wrapper""></div><div id="" class=""swiper-slide""></div><img id="" class=""></img>  <div id="" class=""swiper-button-prev""></div>  <div id="" class=""swiper-button-next""></div><span id="" class=""swiper-notification""></span>  <iframe id="" class=""></iframe><iframe id="" class=""></iframe><iframe id="" class=""></iframe><iframe id="" class=""></iframe><iframe id="" class=""></iframe><iframe id="" class=""></iframe><iframe id="" class=""></iframe>
+
+】
+
+要求：
+1. 只需要输出js代码即可，不需要输出思考过程。
+2. 确保输出的js代码可以在浏览器环境里执行。
+3. 用户的需求如果是点击某个按钮，则输出点击按钮的js代码。
+
+

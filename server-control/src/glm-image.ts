@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:49:34
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-28 16:47:50
+ * @LastEditTime: 2025-05-28 17:19:09
  * @FilePath: /指令控制电脑/server-control/src/glm-image.ts
  */
 import axios from 'axios';
@@ -137,12 +137,13 @@ export async function analyzeSourceCode(
             messages: [
                 {
                     role: "system",
-                    content: `你是一个专业的前端开发，善于理解用户的需求，并观察网页源代码给出对应的js代码。
+                    content: `你是一个专业的前端开发，善于理解用户的需求，并观察网页源代码给出能完成用户需求的的js代码。
                         网页源代码:【\n${sourceCode}\n\n】
                         
                         要求：
                         1. 只需要输出js代码即可，不需要输出思考过程。
                         2. 确保输出的js代码可以在浏览器环境里执行。
+                        3. 用户的需求如果是点击某个按钮，则输出点击按钮的js代码。
                     `
                 },
                 {
@@ -162,6 +163,15 @@ export async function analyzeSourceCode(
             },
             timeout: options.timeout
         });
+
+        console.log(`你是一个专业的前端开发，善于理解用户的需求，并观察网页源代码给出能完成用户需求的的js代码。
+                        网页源代码:【\n${sourceCode}\n\n】
+                        
+                        要求：
+                        1. 只需要输出js代码即可，不需要输出思考过程。
+                        2. 确保输出的js代码可以在浏览器环境里执行。
+                        3. 用户的需求如果是点击某个按钮，则输出点击按钮的js代码。
+                    `)
 
         return {
             content: response.data.choices[0].message.content,

@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-05-08 16:21:48
  * @LastEditors: CZH
- * @LastEditTime: 2025-05-28 16:01:40
+ * @LastEditTime: 2025-05-28 17:10:25
  * @FilePath: /指令控制电脑/server-control/src/server.ts
  */
 import express from 'express';
@@ -14,7 +14,7 @@ import * as path from 'path';
 import { PassThrough } from 'stream';
 import { createCanvas, loadImage } from 'canvas';
 import sharp from 'sharp';
-import { analyzeImage } from './glm-image';
+import { analyzeImage, analyzeSourceCode } from './glm-image';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { captureAndProcessScreenshot, getDisplayScaling, captureScreenshotAsBase64 } from './screen-utils';
@@ -929,6 +929,129 @@ app.get('/browser/analyze', async (req, res) => {
         console.error('浏览器分析失败:', error);
         res.status(500).json({
             error: 'Failed to analyze browser',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /browser/analyze-source:
+ *   post:
+ *     summary: 分析浏览器页面源代码
+ *     description: 获取当前页面源代码并使用大模型进行分析
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               prompt:
+ *                 type: string
+ *                 description: 分析提示
+ *                 example: "分析页面结构"
+ *     responses:
+ *       200:
+ *         description: 分析成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 result:
+ *                   type: string
+ *                   description: 分析结果
+ *                 sourceCode:
+ *                   type: string
+ *                   description: 页面源代码
+ *       500:
+ *         description: 分析失败
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Failed to analyze source code"
+ */
+app.post('/browser/analyze-source', async (req, res) => {
+    const { prompt } = req.body;
+    try {
+        // 获取页面源代码
+        const sourceCode = await browserController.getPageSource();
+
+        // 使用大模型分析源代码
+        const result = await analyzeSourceCode(sourceCode, prompt);
+
+        res.json({
+            success: true,
+            result,
+            sourceCode
+        });
+    } catch (error) {
+        console.error('源代码分析失败:', error);
+        res.status(500).json({
+            error: 'Failed to analyze source code',
+            details: error instanceof Error ? error.message : String(error)
+        });
+    }
+});
+
+/**
+ * @swagger
+ * /browser/analyze-source:
+ *   post:
+ *     summary: 分析网页源代码
+ *     description: 获取当前网页源代码并使用大模型分析
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               prompt:
+ *                 type: string
+ *                 description: 分析提示
+ *     responses:
+ *       200:
+ *         description: 分析成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 result:
+ *                   type: string
+ *                 sourceCode:
+ *                   type: string
+ *       500:
+ *         description: 分析失败
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                 details:
+ *                   type: string
+ */
+app.post('/browser/analyze-source', async (req, res) => {
+    const { prompt } = req.body;
+    try {
+        const sourceCode = await browserController.getPageSource();
+        const result = await analyzeImage(sourceCode, prompt);
+        res.json({ result, sourceCode });
+    } catch (error) {
+        console.error('网页源代码分析失败:', error);
+        res.status(500).json({
+            error: 'Failed to analyze page source',
             details: error instanceof Error ? error.message : String(error)
         });
     }

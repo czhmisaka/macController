@@ -102,8 +102,8 @@ function initChart(canvasId, label, backgroundColor) {
             }
         }
     });
-
 }
+
 // 从服务获取数据并更新图表
 function updateCharts() {
     fetch('/system-info')
@@ -168,6 +168,7 @@ function updateTimestamp() {
     const timestampElement = document.getElementById('last-updated');
     timestampElement.textContent = `最后更新: ${now.toLocaleString('zh-CN')}`;
 }
+
 // 浏览器控制功能
 document.getElementById('launch-browser').addEventListener('click', async () => {
     try {
@@ -280,6 +281,50 @@ document.getElementById('analyze-btn').addEventListener('click', async () => {
     }
 });
 
+// 源代码分析功能
+document.getElementById('analyze-source-btn').addEventListener('click', async () => {
+    const prompt = document.getElementById('analysis-prompt').value;
+    if (!prompt) {
+        showNotification('请输入分析提示', 'error');
+        return;
+    }
+
+    try {
+        showNotification('正在分析源代码...', 'info');
+
+        const response = await fetch('/browser/analyze-source', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt })
+        });
+
+        const result = await response.json();
+
+        if (result.error) {
+            showNotification(`分析失败: ${result.error}`, 'error');
+            return;
+        }
+
+        // 显示分析结果
+        const resultContainer = document.getElementById('source-analysis-result');
+        resultContainer.innerHTML = `<div class="analysis-text-content">${result.result.replace(/\n/g, '<br>')}</div>`;
+
+        // 显示源代码
+        const sourceContainer = document.getElementById('page-source-code');
+        sourceContainer.textContent = result.sourceCode;
+
+        // 显示分析区域
+        document.getElementById('source-analysis-container').style.display = 'block';
+
+        showNotification('源代码分析完成', 'success');
+    } catch (error) {
+        console.error('源代码分析失败:', error);
+        showNotification(`源代码分析失败: ${error.message}`, 'error');
+    }
+});
+
 // 启动数据更新
 updateCharts();
 
@@ -333,6 +378,3 @@ function initVideoStream() {
 
     return ws;
 }
-
-// 注释掉自动初始化，改为按需调用
-// const videoStream = initVideoStream();
